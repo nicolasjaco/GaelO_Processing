@@ -10,12 +10,12 @@ import json
 from json import JSONEncoder
 from .gaelo_processing.data_object.pyradiomics_response import NumpyArrayEncoder
 
-data_path='C:/Users/Nicolas/Desktop/Img_Stage/'
+data_path='D:/Code/Rest_Radiomics/app/tests/files'
 
-img_n1_load = os.path.join(data_path, 'img2_nifti_PT.nii')  
+img_n1_load = os.path.join(data_path, 'image_1.nii')  
 img_pt=sitk.ReadImage(img_n1_load)
 
-mask_n1_load =os.path.join(data_path, 'img2_nifti_mask.nii')
+mask_n1_load =os.path.join(data_path, 'mask_1.nii')
 img_mask=sitk.ReadImage(mask_n1_load)
 origin = img_pt.GetOrigin()
 direction = img_pt.GetDirection()
@@ -29,11 +29,37 @@ mask_3D.SetOrigin(origin)
 mask_3D.SetSpacing(spacing)
 mask_3D.SetDirection(direction)
 
+# c=os.listdir('D:/Code/Rest_Radiomics/app/tests/files')
+# image=c[0]
+# mask=c[1]
+# id_img = int(image[6])
+# id_mask=int(mask[5])
+
+def test(request, idImage = '' , idMask = ''):
+    method = request.method
+    if(method == 'GET') : 
+        return get_radiomics(request)
+    if(method == "POST") : 
+        return post_test(request, idImage, idMask)
 
 def get_radiomics(request):
     pyradiomics_adapter_instance = pyradiomics_adapter()
     # pyradiomics_adapter_instance.set_img()
-    # pyradiomics_adapter_instance.set_mask()
+    # pyradiomics_adapter_instance.set_mask()    
     pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D)
-    return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder)
-    
+    return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+
+def post_test(request, idImage, idMask):
+    image=os.path.join(data_path,"image_"+str(idImage)+".nii")  
+    mask=os.path.join(data_path,"mask_"+str(idMask)+".nii") 
+    id_img = int(idImage)
+    id_mask=int(idMask)
+    print(request.body)
+    if idImage==id_img and idMask==id_mask and id_mask==id_img:
+        pyradiomics_adapter_instance = pyradiomics_adapter()
+        # pyradiomics_adapter_instance.set_img()
+        # pyradiomics_adapter_instance.set_mask()
+        pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D)
+        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+    else:
+        return HttpResponse("L id mask/img ne correspond pas ou est inexistant")
