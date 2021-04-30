@@ -13,7 +13,7 @@ class pyradiomics_response:
                 dictionary[key] = np.array(value)       
             else:
                 dictionary[key] =value
-        print(dictionary)
+        # print(dictionary)
         return dictionary
 
 class NumpyArrayEncoder(JSONEncoder):

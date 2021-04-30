@@ -2,3 +2,9 @@ app/tests/files/image_1.nii
 app/tests/files/mask_1.nii
 app/tests/files/image_2.nii
 app/tests/files/mask_2.nii
+app/Storage/mask_2.nii
+app/Storage/image_2.nii
+app/Storage/image_1.nii
+app/Storage/mask_1.nii
+app/Storage/mask_3.nii
+app/Storage/image_3.nii
