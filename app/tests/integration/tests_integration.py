@@ -29,6 +29,6 @@ class MyTest(TestCase):
         }
         print(type(settings))
 
-        response = c.post('/app/test', settings, content_type='application/json')
+        response = c.post('/app/test/image/1/mask/1', settings, content_type='application/json')
         print(response.content)
         self.assertTrue(response.status_code == 200)

@@ -8,10 +8,11 @@ from django.http import HttpResponse
 from ..data_object.pyradiomics_response import pyradiomics_response
 import json
 
+
 class pyradiomics_adapter:
 
     
-    def calculate(self, image : sitk.Image, mask : sitk.Image ) -> pyradiomics_response :
+    def calculate(self, image : sitk.Image, mask : sitk.Image) -> pyradiomics_response :
         """[Trigger pyRadiomics calculation]
 
         Args:
@@ -21,11 +22,15 @@ class pyradiomics_adapter:
         Returns:
             pyradiomics_response: [Handler for pyRadiomics reponse]
         """
-        dataDir='C:/Users/Nicolas/Desktop/'     
-        params = os.path.join(dataDir,"jsonParams.json")        
-        #params = os.path.join(dataDir,"params.yml")  
-
+        dataDir='C:/Users/Nicolas/Desktop/' 
+        
+        params = os.path.join(dataDir,"params_image_2.json")
+        with open(params) as data:
+           params_dict = json.load(data)
+           params_str = json.dumps(params_dict)        
+        # params = os.path.join(dataDir,"params.yml")  
         extractor = featureextractor.RadiomicsFeatureExtractor()
-        #extractor.loadJSONParams(params)
+        extractor.loadJSONParams(params_str)
+        # extractor.loadParams(params)
         results=extractor.execute(image,mask)       
         return pyradiomics_response(results)
