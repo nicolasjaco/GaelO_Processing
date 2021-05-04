@@ -10,35 +10,36 @@ import json
 from json import JSONEncoder
 from ..data_object.pyradiomics_response import NumpyArrayEncoder
 from django.conf import settings
-import ntpath
-import posixpath
-
-
-# c=os.listdir('D:/Code/Rest_Radiomics/app/Storage')
-# image=c[0]
-# mask=c[1]
-# id_img = int(image[6])
-# id_mask=int(mask[5])
+from jsonschema import SchemaError
 
 #On teste si c est une methode POST ou GET
-def test(request, idImage = '' , idMask = ''):
+def handle(request, idImage = '' , idMask = '', idJson=''):
     method = request.method
     if(method == 'GET') : 
-        return get_radiomics(request)
+        return get_radiomics(request, idImage, idMask, idJson)
     if(method == 'POST') : 
-        return post_test(request, idImage, idMask)
+        return post_radiomics(request, idImage, idMask, idJson)
 
-# Fonctionne pour une image et un mask choisi
-
-def post_radiomics(request, idImage, idMask):
+#Pour pouvoir vérifier l'affichage en web mais a del par la suite
+def get_radiomics(request, idImage, idMask, idJson):
     image=str(settings.BASE_DIR)+"/app/Storage/image_"+str(idImage)+".nii"     
     mask=str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"
     id_img = int(idImage)
     id_mask=int(idMask)
-    img_pt=sitk.ReadImage(image)
-    img_mask=sitk.ReadImage(mask)
+    id_Json=int(idJson)
 
-# Conversion
+    #On verifie que les images existent: 
+    try :
+        img_pt=sitk.ReadImage(image)
+        img_mask=sitk.ReadImage(mask)
+
+    except RuntimeError as re:
+        status_code=str(400)
+        message=str(re)
+        print(re)            
+        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)
+
+# Conversion mask 4D en mask 3D
     if img_mask.GetDimension()==4:
     
         origin = img_pt.GetOrigin()
@@ -55,19 +56,76 @@ def post_radiomics(request, idImage, idMask):
 #Fin Conversion
 
     # print(request.body)
-    try:
-        if idImage==id_img and idMask==id_mask and id_mask==id_img:
+    if idImage==id_img and idMask==id_mask and id_mask==id_img and idJson==id_Json and id_img==id_Json:
+        try:        
+            pyradiomics_adapter_instance = pyradiomics_adapter()
+            # pyradiomics_adapter_instance.set_img()
+            # pyradiomics_adapter_instance.set_mask()            
+            pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D,idJson)    
+            return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+             
+
+        except ValueError as ve:
+            status_code= str(400)
+            message= str(ve)            
+            return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)              
+        
+    else:
+        status_code= str(400)
+        return HttpResponse("Error_Code: "+status_code+" Error_Message: The id image and id mask are not the same")
+
+    
+    
+# Fonctionne pour une image et un mask choisi
+def post_radiomics(request, idImage, idMask, idJson):
+    image=str(settings.BASE_DIR)+"/app/Storage/image_"+str(idImage)+".nii"     
+    mask=str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"
+    id_img = int(idImage)
+    id_mask=int(idMask)
+    id_Json=int(idJson)
+    
+    #On verifie que les images existent: 
+    try :
+        img_pt=sitk.ReadImage(image)
+        img_mask=sitk.ReadImage(mask)    
+    except RuntimeError as re:
+        status_code=str(400)
+        message=str(re)
+        print(re)            
+        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)
+
+# Conversion mask 4D en mask 3D
+    if img_mask.GetDimension()==4:
+    
+        origin = img_pt.GetOrigin()
+        direction = img_pt.GetDirection()
+        spacing = img_pt.GetSpacing()
+
+        img_mask_array = sitk.GetArrayFromImage(img_mask)
+        mask_3D=img_mask_array[1,:,:,:]
+        mask_3D=GetImageFromArray(mask_3D)
+
+        mask_3D.SetOrigin(origin)
+        mask_3D.SetSpacing(spacing)
+        mask_3D.SetDirection(direction)
+#Fin Conversion
+
+    # print(request.body)
+    if idImage==id_img and idMask==id_mask and id_mask==id_img and idJson==id_Json and id_img==id_Json:
+        try:
+        
             pyradiomics_adapter_instance = pyradiomics_adapter()
             # pyradiomics_adapter_instance.set_img()
             # pyradiomics_adapter_instance.set_mask()
-            pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D)               
+            pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D,idJson)    
             return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
-        
-        else:
-            return HttpResponse("The id mask/image are not the same or doesn't exist.")
 
-    except ValueError as ve:
-        status_code= str(400)
-        message= str(ve)
-        return HttpResponse("Error_Code: "+status_code +" Message_Error: "+ message+" please change label.")
+        except ValueError as ve:
+            status_code= str(400)
+            message= str(ve)            
+            return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)        
         
+    else:
+        status_code= str(400)
+        return HttpResponse("Error_Code: "+status_code+" Error_Message: The id image and id mask are not the same")
+    

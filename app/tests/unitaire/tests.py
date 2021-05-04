@@ -12,10 +12,10 @@ class MyTest(TestCase):
     def test_pyrad(self):
         
 
-        img_load = os.path.join(str(settings.BASE_DIR), '/app/Storage/image_1.nii')  
+        img_load = str(settings.BASE_DIR) + '/app/Storage/image_1.nii'
         img_pt=sitk.ReadImage(img_load)
 
-        mask_load =os.path.join(str(settings.BASE_DIR), '/app/Storage/mask_1.nii')
+        mask_load =str(settings.BASE_DIR) + '/app/Storage/mask_1.nii'
         img_mask=sitk.ReadImage(mask_load)
         origin = img_pt.GetOrigin()
         direction = img_pt.GetDirection()

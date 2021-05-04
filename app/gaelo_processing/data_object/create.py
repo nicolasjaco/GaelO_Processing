@@ -6,8 +6,9 @@ from radiomics import featureextractor,firstorder
 from datetime import date,datetime
 import hashlib
 from django.http import HttpResponse, JsonResponse
+from django.conf import settings
 
-# data_path='D:/Code/Rest_Radiomics/app/Storage'
+# data_path=str(settings.BASE_DIR)+'/app/Storage'
 # def create_img_mask(request,idImage,idMask):
 #     id_img=str(idImage)
 #     id_mask=str(idMask)
