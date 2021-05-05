@@ -23,8 +23,7 @@ class pyradiomics_adapter:
 
         Returns:
             pyradiomics_response: [Handler for pyRadiomics reponse]
-        """
-       
+        """       
         dataDir='C:/Users/Nicolas/Desktop/' 
         id_json=str(JSON)
         params = os.path.join(dataDir,"params_image_"+id_json+".json")        
@@ -41,8 +40,7 @@ class pyradiomics_adapter:
         #     status_code=str(400)
         #     message=str(ve)
         #     print("je suis dans le catch")
-        #     return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)
-                          
+        #     return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)                          
         
         results=extractor.execute(image,mask)
         return pyradiomics_response(results)

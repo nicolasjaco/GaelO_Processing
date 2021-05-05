@@ -55,27 +55,20 @@ def get_radiomics(request, idImage, idMask, idJson):
         mask_3D.SetDirection(direction)
 #Fin Conversion
 
-    # print(request.body)
-    if idImage==id_img and idMask==id_mask and id_mask==id_img and idJson==id_Json and id_img==id_Json:
-        try:        
-            pyradiomics_adapter_instance = pyradiomics_adapter()
-            # pyradiomics_adapter_instance.set_img()
-            # pyradiomics_adapter_instance.set_mask()            
-            pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D,idJson)    
-            return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+    # print(request.body)    
+    try:        
+        pyradiomics_adapter_instance = pyradiomics_adapter()
+        # pyradiomics_adapter_instance.set_img()
+        # pyradiomics_adapter_instance.set_mask()            
+        pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D,idJson)    
+        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
              
 
-        except ValueError as ve:
-            status_code= str(400)
-            message= str(ve)            
-            return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)              
-        
-    else:
+    except ValueError as ve:
         status_code= str(400)
-        return HttpResponse("Error_Code: "+status_code+" Error_Message: The id image and id mask are not the same")
-
-    
-    
+        message= str(ve)            
+        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)   
+            
 # Fonctionne pour une image et un mask choisi
 def post_radiomics(request, idImage, idMask, idJson):
     image=str(settings.BASE_DIR)+"/app/Storage/image_"+str(idImage)+".nii"     
@@ -110,22 +103,16 @@ def post_radiomics(request, idImage, idMask, idJson):
         mask_3D.SetDirection(direction)
 #Fin Conversion
 
-    # print(request.body)
-    if idImage==id_img and idMask==id_mask and id_mask==id_img and idJson==id_Json and id_img==id_Json:
-        try:
-        
-            pyradiomics_adapter_instance = pyradiomics_adapter()
-            # pyradiomics_adapter_instance.set_img()
-            # pyradiomics_adapter_instance.set_mask()
-            pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D,idJson)    
-            return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
-
-        except ValueError as ve:
-            status_code= str(400)
-            message= str(ve)            
-            return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)        
-        
-    else:
-        status_code= str(400)
-        return HttpResponse("Error_Code: "+status_code+" Error_Message: The id image and id mask are not the same")
     
+    try:
+        
+        pyradiomics_adapter_instance = pyradiomics_adapter()
+        # pyradiomics_adapter_instance.set_img()
+        # pyradiomics_adapter_instance.set_mask()
+        pyradiomics_response = pyradiomics_adapter_instance.calculate(img_pt,mask_3D,idJson)    
+        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+
+    except ValueError as ve:
+        status_code= str(400)
+        message= str(ve)            
+        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)      

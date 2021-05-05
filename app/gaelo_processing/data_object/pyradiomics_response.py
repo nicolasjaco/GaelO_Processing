@@ -2,6 +2,7 @@ import json
 import numpy as np
 from json import JSONEncoder
 
+
 class pyradiomics_response:
     def __init__(self,results):
         self.results=results
@@ -17,8 +18,9 @@ class pyradiomics_response:
         return dictionary
 
 class NumpyArrayEncoder(JSONEncoder):
-    def default(self, obj):
+    def default(self, obj):       
         if isinstance(obj, np.ndarray):
             return obj.tolist()
         return JSONEncoder.default(self, obj)
+
   
