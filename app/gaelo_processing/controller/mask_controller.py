@@ -17,6 +17,13 @@ def handle(request, idMask = ''):
         return create_mask(request)
         
 def delete_mask(idMask):
+    """[Delete the Mask]
+
+        Args:
+            idMask (int): [Input idMask]
+        
+        Removes the specified mask     
+        """       
     os.remove(str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii")
 
 def create_mask(request):
@@ -24,7 +31,8 @@ def create_mask(request):
     data = request.read()
     mask_md5 = hashlib.md5(str(data).encode())
     mask=base64.b64decode(data)  
-    decode_mask = open(data_path+'/mask_'+mask_md5.hexdigest()+'.nii', 'wb')
+    id_mask=mask_md5.hexdigest()
+    decode_mask = open(data_path+'/mask_'+id_mask+'.nii', 'wb')
     decode_mask.write(mask)
     decode_mask.close()          
-    return JsonResponse({'mask_id': mask_md5.hexdigest()})
+    return JsonResponse({'id': mask_md5.hexdigest()})

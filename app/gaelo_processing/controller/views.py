@@ -11,7 +11,11 @@ import json
 from json import JSONEncoder
 from ..data_object.pyradiomics_response import NumpyArrayEncoder
 from django.conf import settings
-from jsonschema import SchemaError
+# from jsonschema import SchemaError
+from django.core.exceptions import BadRequest
+from ..exceptions import custom_exceptions
+from django.http import Http404
+from django.core import exceptions
 
 #On teste si c est une methode POST ou GET
 def handle(request, idImage = '' , idMask = '', idJson=''):
@@ -24,63 +28,71 @@ def handle(request, idImage = '' , idMask = '', idJson=''):
 #Pour pouvoir vérifier l'affichage en web mais a del par la suite
 def get_radiomics(request, idImage, idMask, idJson):
     image=str(settings.BASE_DIR)+"/app/Storage/image_"+str(idImage)+".nii"     
-    mask=str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"   
-  
+    mask=str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"       
+    
     #On verifie que les images existent: 
     try :
         image=sitk.ReadImage(image)
-        mask=sitk.ReadImage(mask)
-
-    except RuntimeError as re:
-        status_code=str(400)
-        message=str(re)                  
-        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)
+        mask=sitk.ReadImage(mask)   
+    
+    except RuntimeError as re:        
+        return custom_exceptions.handler_404(request, str(re))
 
     if mask.GetDimension()!=image.GetDimension():
         mask=conversion.convert(image,mask)
 
-    try:        
+    try:      
         pyradiomics_adapter_instance = pyradiomics_adapter()
         # pyradiomics_adapter_instance.set_img()
-        # pyradiomics_adapter_instance.set_mask()            
-        pyradiomics_response = pyradiomics_adapter_instance.calculate(image, mask, idJson)    
-        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})            
+        # pyradiomics_adapter_instance.set_mask() 
+        try:           
+            pyradiomics_response = pyradiomics_adapter_instance.calculate(image, mask, idJson)    
+            return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})      
 
-    except ValueError as ve:
-        status_code= str(400)
-        message= str(ve)            
-        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)               
+        except FileNotFoundError as fnf:
+            return custom_exceptions.handler_404(request, str(fnf))        
+
+    except ValueError as ve:      
+        return custom_exceptions.handler_400(request, str(ve))
+           
+    
 
 def post_radiomics(request, idImage, idMask, idJson):
+    """[Trigger pyRadiomics calculation]
+
+        Args:
+            idImage (int): [Input idImage]
+            idMask (int): [Input idMask]
+            idJson(int): [Input idJson]
+
+        Returns:
+           JsonResponse: [PyRadiomics results]
+            """      
     image=str(settings.BASE_DIR)+"/app/Storage/image_"+str(idImage)+".nii"     
-    mask=str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"
-    id_img = int(idImage)
-    id_mask=int(idMask)
-    id_Json=int(idJson)
+    mask=str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"    
     
     #On verifie que les images existent: 
     try :
         image=sitk.ReadImage(image)
         mask=sitk.ReadImage(mask) 
 
-    except RuntimeError as re:
-        status_code=str(400)
-        message=str(re)
-        print(re)            
-        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)
+    except RuntimeError as re:        
+        return custom_exceptions.handler_404(request, str(re))
 
     #Si le mask n'est pas de la même dimension que l'image on la convertie
     if mask.GetDimension()!=image.GetDimension():
         mask=conversion.convert(image,mask)
 
-    try:        
+    try:      
         pyradiomics_adapter_instance = pyradiomics_adapter()
         # pyradiomics_adapter_instance.set_img()
-        # pyradiomics_adapter_instance.set_mask()
-        pyradiomics_response = pyradiomics_adapter_instance.calculate(image,mask,idJson)    
-        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+        # pyradiomics_adapter_instance.set_mask() 
+        try:           
+            pyradiomics_response = pyradiomics_adapter_instance.calculate(image, mask, idJson)    
+            return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})      
 
-    except ValueError as ve:
-        status_code= str(400)
-        message= str(ve)            
-        return HttpResponse("Error_Code: "+status_code +" Error_Message: "+ message)      
+        except FileNotFoundError as fnf:
+            return custom_exceptions.handler_404(request, str(fnf))        
+
+    except ValueError as ve:      
+        return custom_exceptions.handler_400(request, str(ve))     
