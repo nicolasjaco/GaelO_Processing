@@ -1,5 +1,4 @@
 from django.urls import path
-from django.conf.urls import handler404
 from .gaelo_processing.controller import views
 from .gaelo_processing.controller import image_controller
 from .gaelo_processing.controller import mask_controller

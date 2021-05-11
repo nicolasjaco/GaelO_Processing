@@ -15,7 +15,7 @@ class MyTest(TestCase):
             "binWidth": 3.5,
             "normalize": False,
             "force2D": True,
-            "label": 2,
+            "label": 1,
             "geometryTolerance": 0.5,
             "correctMask": False,
             "additionalInfo": True,
@@ -27,7 +27,7 @@ class MyTest(TestCase):
             "interpolator": "sitkLinear"
         }
         }
-        response = c.post('/app/radiomics/image/2/mask/2',setting, content_type='application/json')
+        response = c.post('/app/radiomics/image/8/mask/8',setting, content_type='application/json')
         self.assertTrue(response.status_code == 200)
 
     def test_delete_image(self):
@@ -44,16 +44,16 @@ class MyTest(TestCase):
         response = c.delete('/app/mask/3')
         self.assertTrue(response.status_code == 200)
 
-    def test_create_and_delete_image(self):
-        data_path = str(settings.BASE_DIR)+"/app/Storage/image_1.nii"
+    def test_create_image(self):
+        data_path = str(settings.BASE_DIR)+"/app/Storage/image_8.nii"
         data = open(data_path, "rb").read()
         encoded = base64.b64encode(data)
         c = Client()
         response = c.post('/app/image', data=encoded.decode(),content_type='image/nii')
         self.assertTrue(response.status_code == 200)
 
-    def test_create_and_delete_mask(self):
-        data_path = str(settings.BASE_DIR)+"/app/Storage/mask_1.nii"
+    def test_create_mask(self):
+        data_path = str(settings.BASE_DIR)+"/app/Storage/mask_8.nii"
         data = open(data_path, "rb").read()
         encoded = base64.b64encode(data)
         c = Client()

@@ -1,16 +1,10 @@
 from radiomics import featureextractor
 import SimpleITK as sitk
-from SimpleITK import GetImageFromArray
-import os
-import numpy as np
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
 from ..data_object.pyradiomics_response import pyradiomics_response
 import json
-import jsonschema
-import schema
+# import jsonschema
+# import schema
 from ..exceptions.gaelo_processor_exeptions import GaelOBadRequestException, GaelONotFoundException
-
 
 class pyradiomics_adapter:
     
@@ -23,8 +17,7 @@ class pyradiomics_adapter:
 
         Returns:
             pyradiomics_response: [Handler for pyRadiomics reponse]
-        """           
-   
+        """              
         extractor = featureextractor.RadiomicsFeatureExtractor()
         extractor.loadJSONParams(json_parms)
         results=extractor.execute(image,mask)

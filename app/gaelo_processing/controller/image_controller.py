@@ -1,11 +1,7 @@
-from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 import os
-import SimpleITK as sitk 
-from SimpleITK import GetImageFromArray
 import hashlib
-from random import *
 import base64
 
 def handle(request, idImage = ''):

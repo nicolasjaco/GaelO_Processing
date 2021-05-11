@@ -1,14 +1,12 @@
-from django.shortcuts import render
 from django.http import JsonResponse
 from ..adapter.pyradiomics_adapter import pyradiomics_adapter
-from ..data_object import conversion
 import SimpleITK as sitk
 from radiomics import featureextractor
 import json
 from ..data_object.pyradiomics_response import NumpyArrayEncoder
 from django.conf import settings
 from ..exceptions.gaelo_processor_exeptions import GaelOBadRequestException, GaelONotFoundException
-import jsonschema
+
 
 def handle(request, idImage='', idMask=''):
     method = request.method   
@@ -37,10 +35,6 @@ def post_radiomics(request, idImage, idMask):
 
     except RuntimeError as re:
         raise GaelONotFoundException(str(re))
-
-    # Si le mask n'est pas de la même dimension que l'image on la convertie
-    if mask.GetDimension() != image.GetDimension():
-        mask = conversion.convert(image, mask)
 
     try:
         pyradiomics_adapter_instance = pyradiomics_adapter()

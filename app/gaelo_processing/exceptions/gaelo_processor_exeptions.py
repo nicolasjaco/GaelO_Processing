@@ -1,9 +1,5 @@
 import json
-from django.http import HttpResponseServerError, JsonResponse, HttpResponseBadRequest, HttpResponseNotFound, HttpResponse
-from django.views.defaults import page_not_found
-from django.shortcuts import render
-from django.core import exceptions
-
+from django.http import HttpResponse
 
 class GaelOException(Exception) :
     def __init__(self, message, status_code):
