@@ -23,7 +23,7 @@ BASE_DIR =Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m%8u6+qp4*^-k6gpo+se28f!mgtk!b^5r5l1)u)$(vo=th_hu1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #True de base
+DEBUG = False #True de base
 
 ALLOWED_HOSTS = ['testserver','localhost']
 
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app.error_handler.ErrorHandlerMiddleware'
 ]
 
 ROOT_URLCONF = 'rest_radiomics.urls'

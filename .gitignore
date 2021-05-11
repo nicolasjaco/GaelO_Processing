@@ -8,3 +8,5 @@ app/Storage/image_1.nii
 app/Storage/mask_1.nii
 app/Storage/mask_3.nii
 app/Storage/image_3.nii
+app/Storage/mask_8.nii
+app/Storage/image_8.nii

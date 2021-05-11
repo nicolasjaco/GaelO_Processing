@@ -8,12 +8,13 @@ from django.http import HttpResponse, JsonResponse
 from ..data_object.pyradiomics_response import pyradiomics_response
 import json
 import jsonschema
-from django.core.exceptions import ValidationError
-from ..exceptions import custom_exceptions
+import schema
+from ..exceptions.gaelo_processor_exeptions import GaelOBadRequestException, GaelONotFoundException
+
 
 class pyradiomics_adapter:
     
-    def calculate(self, image : sitk.Image, mask : sitk.Image, JSON:json) -> pyradiomics_response :
+    def calculate(self, image : sitk.Image, mask : sitk.Image, json_parms :str ) -> pyradiomics_response :
         """[Trigger pyRadiomics calculation]
 
         Args:
@@ -22,22 +23,12 @@ class pyradiomics_adapter:
 
         Returns:
             pyradiomics_response: [Handler for pyRadiomics reponse]
-        """       
-        dataDir='C:/Users/Nicolas/Desktop/' 
-        id_json=str(JSON)        
-        params = os.path.join(dataDir,"params_image_"+id_json+".json")       
-        with open(params) as data:
-            params_dict = json.load(data)
-            params_str = json.dumps(params_dict)     
-        extractor = featureextractor.RadiomicsFeatureExtractor() 
-     
-        extractor.loadJSONParams(params_str) 
-       
+        """           
+   
+        extractor = featureextractor.RadiomicsFeatureExtractor()
+        extractor.loadJSONParams(json_parms)
         results=extractor.execute(image,mask)
         return pyradiomics_response(results)   
+      
 
-     
-        
-        
-
-            
+          
