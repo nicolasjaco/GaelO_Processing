@@ -36,8 +36,8 @@ class MyTest(TestCase):
                 }
         }
 
-        img_load = str(settings.BASE_DIR) + '/app/Storage/image_8.nii'
+        img_load = str(settings.BASE_DIR) + '/app/storage/image_8.nii'
         img_pt = sitk.ReadImage(img_load)
-        mask_load = str(settings.BASE_DIR) + '/app/Storage/mask_8.nii'
+        mask_load = str(settings.BASE_DIR) + '/app/storage/mask_8.nii'
         img_mask = sitk.ReadImage(mask_load)      
         self.assertTrue(pyradiomics_adapter.calculate(self, img_pt, img_mask, json.dumps(setting)) != None)

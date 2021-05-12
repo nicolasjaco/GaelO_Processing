@@ -1,19 +1,23 @@
+import json
+
 from django.http import JsonResponse
-from ..adapter.pyradiomics_adapter import pyradiomics_adapter
+from django.conf import settings
+
 import SimpleITK as sitk
 from radiomics import featureextractor
-import json
+
 from ..data_object.pyradiomics_response import NumpyArrayEncoder
-from django.conf import settings
+from ..adapter.pyradiomics_adapter import pyradiomics_adapter
 from ..exceptions.gaelo_processor_exeptions import GaelOBadRequestException, GaelONotFoundException
 
-
 def handle(request, idImage='', idMask=''):
-    method = request.method   
+    method = request.method
     if(method == 'POST'):
-        return post_radiomics(request, idImage, idMask)
+        json_payload = request.read()
+        pyradiomics_response=post_radiomics(json_payload, idImage, idMask)
+        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder)
 
-def post_radiomics(request, idImage, idMask):
+def post_radiomics(json_payload :str , idImage :int, idMask :int) -> JsonResponse:
     """
     [Trigger post the radiomics results ]
 
@@ -24,11 +28,11 @@ def post_radiomics(request, idImage, idMask):
 
         Returns:
            JsonResponse: [PyRadiomics results]
-            """
-    image = str(settings.BASE_DIR)+"/app/Storage/image_"+str(idImage)+".nii"
-    mask = str(settings.BASE_DIR)+"/app/Storage/mask_"+str(idMask)+".nii"
-
-    # On verifie que les images existent:
+    """
+    image =settings.STORAGE_DIR+"/image_"+str(idImage)+".nii"
+    mask = settings.STORAGE_DIR+"/mask_"+str(idMask)+".nii"
+    
+    # We check that images are existing in the local storage
     try:
         image = sitk.ReadImage(image)
         mask = sitk.ReadImage(mask)
@@ -38,9 +42,9 @@ def post_radiomics(request, idImage, idMask):
 
     try:
         pyradiomics_adapter_instance = pyradiomics_adapter()
-        jsonPayload = request.read()      
-        pyradiomics_response = pyradiomics_adapter_instance.calculate(image, mask, jsonPayload)       
-        return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder, json_dumps_params={'indent': 4})
+        print(settings.STORAGE_DIR)
+        pyradiomics_response =pyradiomics_adapter_instance.calculate(image, mask, json_payload)
+        return pyradiomics_response 
 
-    except ValueError as ve:        
+    except ValueError as ve:
         raise GaelOBadRequestException(str(ve))

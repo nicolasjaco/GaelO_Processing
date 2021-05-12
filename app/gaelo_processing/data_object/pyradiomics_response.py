@@ -1,10 +1,11 @@
 import json
 import numpy as np
 from json import JSONEncoder
+from collections import OrderedDict
 
 
 class pyradiomics_response:
-    def __init__(self,results):
+    def __init__(self, results :OrderedDict):
         self.results=results
 
     def get_dictionary(self) -> dict :

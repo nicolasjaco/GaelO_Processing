@@ -31,21 +31,21 @@ class MyTest(TestCase):
         self.assertTrue(response.status_code == 200)
 
     def test_delete_image(self):
-        image = open(str(settings.BASE_DIR)+'/app/Storage/image_3.nii', 'wb')
+        image = open(settings.STORAGE_DIR+'/image_3.nii', 'wb')
         image.close()
         c = Client()
         response = c.delete('/app/image/3')
         self.assertTrue(response.status_code == 200)
 
     def test_delete_mask(self):
-        mask = open(str(settings.BASE_DIR)+'/app/Storage/mask_3.nii', 'wb')
+        mask = open(settings.STORAGE_DIR+'/mask_3.nii', 'wb')
         mask.close()
         c = Client()
         response = c.delete('/app/mask/3')
         self.assertTrue(response.status_code == 200)
 
     def test_create_image(self):
-        data_path = str(settings.BASE_DIR)+"/app/Storage/image_8.nii"
+        data_path = settings.STORAGE_DIR+"/image_8.nii"
         data = open(data_path, "rb").read()
         encoded = base64.b64encode(data)
         c = Client()
@@ -53,7 +53,7 @@ class MyTest(TestCase):
         self.assertTrue(response.status_code == 200)
 
     def test_create_mask(self):
-        data_path = str(settings.BASE_DIR)+"/app/Storage/mask_8.nii"
+        data_path = settings.STORAGE_DIR+"/mask_8.nii"
         data = open(data_path, "rb").read()
         encoded = base64.b64encode(data)
         c = Client()

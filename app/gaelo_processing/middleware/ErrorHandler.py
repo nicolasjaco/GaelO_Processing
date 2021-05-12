@@ -1,5 +1,5 @@
 from django.conf import settings
-from .gaelo_processing.exceptions.gaelo_processor_exeptions import GaelOException
+from ..exceptions.gaelo_processor_exeptions import GaelOException
 import traceback
 
 class ErrorHandlerMiddleware:

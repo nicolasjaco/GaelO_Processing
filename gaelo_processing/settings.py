@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR =Path(__file__).resolve().parent.parent
-
-
+STORAGE_DIR=str(Path(__file__).parent.parent)+'/app/storage'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -23,7 +23,7 @@ BASE_DIR =Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m%8u6+qp4*^-k6gpo+se28f!mgtk!b^5r5l1)u)$(vo=th_hu1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #True de base
+DEBUG = True #True de base
 
 ALLOWED_HOSTS = ['testserver','localhost']
 
@@ -47,10 +47,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'app.error_handler.ErrorHandlerMiddleware'
+    'app.gaelo_processing.middleware.ErrorHandler.ErrorHandlerMiddleware',
 ]
 
-ROOT_URLCONF = 'rest_radiomics.urls'
+ROOT_URLCONF = 'gaelo_processing.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'rest_radiomics.wsgi.application'
+WSGI_APPLICATION = 'gaelo_processing.wsgi.application'
 
 
 # Database

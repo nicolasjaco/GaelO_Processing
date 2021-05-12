@@ -1,5 +1,5 @@
 """
-WSGI config for rest_radiomics project.
+WSGI config for gaelo_processing project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rest_radiomics.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gaelo_processing.settings')
 
 application = get_wsgi_application()
