@@ -8,6 +8,7 @@ numpy = "*"
 pyradiomics = "*"
 simpleitk = "*"
 django = "*"
+requests = "*"
 
 [dev-packages]
 

@@ -7,7 +7,7 @@ services:
         container_name: gaeloprocessing
         restart: unless-stopped
         ports: ["8001:8000"]
-        volumes: ["gaeloprocessing:/home/gaelo_processing/app/storage:Z"]
+        volumes: ["D:/Code/Gaelo_Processing:/home/gaelo_processing:Z"]
         environment:
             TZ: "Europe/Paris"
             ORTHANC_ADDRESS: "http://orthanc"
