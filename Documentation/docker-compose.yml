@@ -1,0 +1,46 @@
+version: "2"
+
+services:
+
+    gaeloprocessing:
+        image: salimkanoun/gaeloprocessing
+        container_name: gaeloprocessing
+        restart: unless-stopped
+        volumes: ["gaeloprocessing:/home/gaelo_processing/app/storage:Z"]
+        environment:
+            TZ: "Europe/Paris"
+            ORTHANC_ADDRESS: "http://orthanc"
+            ORTHANC_PORT: "8042"
+            ORTHANC_USERNAME: "salim"
+            ORTHANC_PASSWORD: "salim" 
+
+    orthanc:
+        image: osimis/orthanc:21.5.1
+        container_name: orthanc
+        restart: unless-stopped
+        ports: ["8042:8042"]
+        volumes: ["orthanc:/var/lib/orthanc/db:Z"]
+        environment:
+            ORTHANC__NAME: "Orthanc"
+            ORTHANC__DICOM_SERVER_ENABLED: "false"
+            ORTHANC__DICOM_MODALITIES_IN_DATABASE: "true"
+            ORTHANC__ORTHANC_PEERS_IN_DATABASE: "true"
+            DICOM_WEB_PLUGIN_ENABLED: "true"
+            OSIMIS_WEB_VIEWER1_PLUGIN_ENABLED: "true"
+            PYTHON_PLUGIN_ENABLED: "true"
+            TRANSFERS_PLUGIN_ENABLED: "true"
+            WORKLISTS_PLUGIN_ENABLED: "true"
+            ORTHANC__REGISTERED_USERS: |
+                {"salim": "salim"}
+            ORTHANC__DICOM_WEB__ENABLE: "true"
+            ORTHANC__DICOM_WEB__ROOT: "/dicom-web/"
+            ORTHANC__DICOM_WEB__ENABLEWADO: "true"
+            ORTHANC__DICOM_WEB__WADOROOT: "/wado"
+            ORTHANC__DICOM_WEB__SSL: "true"
+            ORTHANC__DICOM_WEB__STUDIESMETADATA: "MainDicomTags"
+            ORTHANC__DICOM_WEB__SERIESMETADATA: "Full"
+
+
+volumes:
+        orthanc:
+        gaeloprocessing:
