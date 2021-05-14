@@ -1,5 +1,5 @@
 # base image  
-FROM python:3.7 
+FROM python:3.7.4 
 # setup environment variable  
 ENV DockerHOME=/home/gaelo_processing
 
