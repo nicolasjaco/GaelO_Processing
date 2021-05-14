@@ -42,7 +42,6 @@ def post_radiomics(json_payload :str , idImage :int, idMask :int) -> JsonRespons
 
     try:
         pyradiomics_adapter_instance = pyradiomics_adapter()
-        print(settings.STORAGE_DIR)
         pyradiomics_response =pyradiomics_adapter_instance.calculate(image, mask, json_payload)
         return pyradiomics_response 
 

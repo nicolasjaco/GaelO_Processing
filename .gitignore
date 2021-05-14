@@ -1,12 +1,10 @@
-app/tests/files/image_1.nii
-app/tests/files/mask_1.nii
-app/tests/files/image_2.nii
-app/tests/files/mask_2.nii
-app/Storage/mask_2.nii
-app/Storage/image_2.nii
-app/Storage/image_1.nii
-app/Storage/mask_1.nii
-app/Storage/mask_3.nii
-app/Storage/image_3.nii
-app/Storage/mask_8.nii
-app/Storage/image_8.nii
+app/Storage/*
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
