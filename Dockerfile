@@ -15,9 +15,8 @@ COPY . $DockerHOME
 RUN pip install --upgrade pip
 RUN pip install pipenv
 # run this command to install all dependencies  
-RUN pipenv install  
- 
-RUN pipenv shell 
+RUN pipenv install --system --deploy
+
 EXPOSE 8000 
 # start server
 CMD python manage.py runserver 
