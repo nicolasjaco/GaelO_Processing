@@ -13,9 +13,7 @@ COPY . $DockerHOME
  
 # install dependencies  
 RUN pip install --upgrade pip
-RUN pip install pipenv
-# run this command to install all dependencies  
-RUN pipenv install --system --deploy
+RUN pip install -r requirements.txt
 
 EXPOSE 8000 
 # start server

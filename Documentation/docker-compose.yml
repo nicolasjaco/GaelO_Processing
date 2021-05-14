@@ -6,6 +6,7 @@ services:
         image: salimkanoun/gaeloprocessing
         container_name: gaeloprocessing
         restart: unless-stopped
+        ports: ["8001:8000"]
         volumes: ["gaeloprocessing:/home/gaelo_processing/app/storage:Z"]
         environment:
             TZ: "Europe/Paris"
