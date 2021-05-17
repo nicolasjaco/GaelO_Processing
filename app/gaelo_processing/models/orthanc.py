@@ -1,8 +1,18 @@
 import requests
 from zipfile import ZipFile 
+# import tempfile
+from pathlib import Path
+
+class Orthanc:
+
+    def get_zip_from_orthanc(self, orthanc_series_id):
+        file=requests.get('http://localhost:8042/series/'+orthanc_series_id+'/archive',auth=('salim','salim'))
+        content=file.content
+        zip_file = open('C:/Users/Nicolas/Desktop/test.zip', 'wb')
+        zip_file.write(content)
+        zip_file.close()
+        return zip_file.name
+
+    
 
 
-def get_dicoms(idSeries):
-    file=requests.get('http://localhost:8042/series/'+idSeries+'/archive',auth=('salim','salim'))
-    with ZipFile(file, 'r') as zip:      
-        zip.extractall('C:/Users/Nicolas/Desktop')

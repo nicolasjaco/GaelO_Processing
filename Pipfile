@@ -9,6 +9,7 @@ pyradiomics = "*"
 simpleitk = "*"
 django = "*"
 requests = "*"
+dicom-to-cnn = "*"
 
 [dev-packages]
 

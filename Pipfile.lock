@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4a878d929b7329e23f25224d04de37e16b83ddc708f8ce03cc4e5417ffe75e9f"
+            "sha256": "2e555756bb031a871e8629cd0d9e09a6bdce4eb42f244a8b89aa68846f650cc2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,13 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==4.0.0"
+        },
+        "dicom-to-cnn": {
+            "hashes": [
+                "sha256:89a5af4076cee7c37b54050b71323825c212a1185283549349ad7f939dbd4d70"
+            ],
+            "index": "pypi",
+            "version": "==0.59"
         },
         "django": {
             "hashes": [
