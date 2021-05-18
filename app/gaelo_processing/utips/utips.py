@@ -5,7 +5,7 @@ import shutil
 
 class Utips:
     def unzip_file(self, zip_file :str): #,destination:str  ):#passer en static   
-        destination=tempfile.mkdtemp(prefix='dezip_', dir='C:/Users/Nicolas/Desktop')     
+        destination=tempfile.mkdtemp(prefix='gaelo_pross_unzip_') #laisser faire python après
         with ZipFile(zip_file) as my_zip:
             for member in my_zip.namelist():
                 filename = os.path.basename(member)
@@ -18,6 +18,7 @@ class Utips:
                 with source, target:                   
                     shutil.copyfileobj(source, target)
         # os.remove(zip_file)
+        print(destination)
         # shutil.rmtree(destination)
         
 
