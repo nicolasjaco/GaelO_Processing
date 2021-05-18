@@ -3,10 +3,9 @@ import tempfile
 import os
 import shutil
 
-
 class Utips:
     def unzip_file(self, zip_file :str): #,destination:str  ):#passer en static   
-        destination=tempfile.mkdtemp(prefix='dezip', dir='C:/Users/Nicolas/Desktop')     
+        destination=tempfile.mkdtemp(prefix='dezip_', dir='C:/Users/Nicolas/Desktop')     
         with ZipFile(zip_file) as my_zip:
             for member in my_zip.namelist():
                 filename = os.path.basename(member)
