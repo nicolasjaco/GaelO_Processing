@@ -1,5 +1,6 @@
-from ...gaelo_processing.models.Orthanc import Orthanc
 from django.test import TestCase
+
+from ...gaelo_processing.models.Orthanc import Orthanc
 
 class MyTest(TestCase):
         def test_get_zip_from_orthanc(self):  

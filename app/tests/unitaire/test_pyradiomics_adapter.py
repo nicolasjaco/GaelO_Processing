@@ -1,9 +1,11 @@
-# from ...gaelo_processing.adapter.pyradiomics_adapter import pyradiomics_adapter
+# import SimpleITK as sitk
+# import json
 
 # from django.test import TestCase
-# import SimpleITK as sitk
 # from django.conf import settings
-# import json
+
+
+# from ...gaelo_processing.adapter.pyradiomics_adapter import pyradiomics_adapter
 
 
 

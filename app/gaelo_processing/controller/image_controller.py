@@ -1,8 +1,10 @@
-from django.http import HttpResponse, JsonResponse
-from django.conf import settings
 import os
 import hashlib
 import base64
+
+from django.http import HttpResponse, JsonResponse
+from django.conf import settings
+
 
 def handle(request, idImage = ''):
     method = request.method

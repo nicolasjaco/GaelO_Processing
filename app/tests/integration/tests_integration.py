@@ -1,9 +1,9 @@
-# from django.test import TestCase
-# from django.test import Client
-# from django.conf import settings
 # import base64
 # import SimpleITK as sitk
 
+# from django.test import TestCase
+# from django.test import Client
+# from django.conf import settings
 
 # class MyTest(TestCase):
 

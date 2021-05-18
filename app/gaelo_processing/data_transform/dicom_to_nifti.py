@@ -1,8 +1,9 @@
-from library_dicom.dicom_processor.model.Series import Series
-from ..utips.utips import Utips
-from django.conf import settings
 import tempfile
 
+from django.conf import settings
+
+from library_dicom.dicom_processor.model.Series import Series
+from ..utips.utips import Utips
 
 class Dicom_To_Nifti:       
         def to_nifti(folder_path):

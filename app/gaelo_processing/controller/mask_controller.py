@@ -1,8 +1,9 @@
-from django.http import HttpResponse, JsonResponse, request
-from django.conf import settings
 import os
 import hashlib
 import base64
+
+from django.http import HttpResponse, JsonResponse, request
+from django.conf import settings
 
 def handle(request, idMask = ''):    
     method = request.method
