@@ -17,8 +17,9 @@ class Utips:
                 target = open(os.path.join(destination, filename), "wb")
                 with source, target:                   
                     shutil.copyfileobj(source, target)
+        return destination
         # os.remove(zip_file)
-        print(destination)
+        
         # shutil.rmtree(destination)
         
 

@@ -10,6 +10,7 @@ simpleitk = "*"
 django = "*"
 requests = "*"
 dicom-to-cnn = "*"
+imageio = "*"
 
 [dev-packages]
 
