@@ -9,10 +9,7 @@ pyradiomics = "*"
 simpleitk = "*"
 django = "*"
 requests = "*"
-dicom-to-cnn = "*"
-imageio = "*"
-matplotlib = "*"
-scipy = "*"
+tensorflow-serving-api = "==2.3.0"
 
 [dev-packages]
 

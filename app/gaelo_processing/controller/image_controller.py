@@ -5,7 +5,6 @@ import base64
 from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 
-
 def handle(request, idImage = ''):
     method = request.method
     if(method == 'DELETE') : 
@@ -41,4 +40,3 @@ def create_image(data :int) -> str :
     decode_image.write(image)
     decode_image.close()          
     return image_id
-    

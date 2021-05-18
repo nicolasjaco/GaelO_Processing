@@ -41,6 +41,16 @@ services:
             ORTHANC__DICOM_WEB__STUDIESMETADATA: "MainDicomTags"
             ORTHANC__DICOM_WEB__SERIESMETADATA: "Full"
 
+    tfserving:
+        image: tensorflow/serving
+        ports: 
+            - "8500:8500"
+            - "8501:8501"
+        volumes: ["D:/data_docker/model:/models/aquisition_field_model"]
+        environment:
+            MODEL_NAME: "aquisition_field_model"
+
+
 
 volumes:
         orthanc:

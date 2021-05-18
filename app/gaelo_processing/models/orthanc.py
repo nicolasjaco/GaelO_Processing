@@ -1,7 +1,6 @@
 import requests
-from zipfile import ZipFile 
+
 # import tempfile
-from pathlib import Path
 
 class Orthanc:
 
@@ -12,7 +11,3 @@ class Orthanc:
         zip_file.write(content)
         zip_file.close()
         return zip_file.name
-
-    
-
-
