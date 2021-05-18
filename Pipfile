@@ -11,6 +11,8 @@ django = "*"
 requests = "*"
 dicom-to-cnn = "*"
 imageio = "*"
+matplotlib = "*"
+scipy = "*"
 
 [dev-packages]
 
