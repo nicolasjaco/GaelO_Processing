@@ -4,8 +4,8 @@ import shutil
 from zipfile import ZipFile 
 
 class Utips:
-    # @staticmethod
-    def unzip_file(self, zip_file :str): #,destination:str  ):#passer en static   
+    
+    def unzip_file(zip_file :str): #,destination:str  ): 
         destination=tempfile.mkdtemp(prefix='gaelo_pross_unzip_') 
         with ZipFile(zip_file) as my_zip:
             for member in my_zip.namelist():

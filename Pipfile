@@ -10,6 +10,7 @@ simpleitk = "*"
 django = "*"
 requests = "*"
 tensorflow-serving-api = "==2.3.0"
+dicom-to-cnn = "*"
 
 [dev-packages]
 
