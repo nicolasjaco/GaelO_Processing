@@ -9,8 +9,8 @@ pyradiomics = "*"
 simpleitk = "*"
 django = "*"
 requests = "*"
-tensorflow-serving-api = "==2.3.0"
 dicom-to-cnn = "*"
+tensorflow = "2.5.0"
 
 [dev-packages]
 

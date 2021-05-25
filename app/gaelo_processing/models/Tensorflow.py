@@ -31,4 +31,4 @@ class Tensorflow:
             resultDict[str(output)] = list(outputResult.float_val)
 
         print(json.dumps(resultDict))
-        #This printed 'dog' on my console
+        

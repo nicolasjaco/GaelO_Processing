@@ -1,6 +1,5 @@
 import tempfile
 import shutil
-
 from django.conf import settings
 
 from library_dicom.dicom_processor.model.Series import Series

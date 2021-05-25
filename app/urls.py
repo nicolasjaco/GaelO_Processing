@@ -9,6 +9,5 @@ urlpatterns = [
     path('image/<str:idImage>',image_controller.handle,name='delete_image'),
     path('mask/<str:idMask>',mask_controller.handle,name='delete_mask'),
     path('image',image_controller.handle,name='create_image'),
-    path('mask',mask_controller.handle,name='create_mask'), 
-    # path('orthanc/<str:idSeries>',orthanc.handle,name='get_dicom')   
+    path('mask',mask_controller.handle,name='create_mask'),     
 ]
