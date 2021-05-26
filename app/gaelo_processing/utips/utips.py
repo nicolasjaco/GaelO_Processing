@@ -3,8 +3,7 @@ import os
 import shutil
 from zipfile import ZipFile 
 
-class Utips:
-    
+class Utips:    
     def unzip_file(zip_file :str): #,destination:str  ): 
         destination=tempfile.mkdtemp(prefix='gaelo_pross_unzip_') 
         with ZipFile(zip_file) as my_zip:
