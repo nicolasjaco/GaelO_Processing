@@ -13,8 +13,7 @@ def handle(request, idImage = ''):
         delete_image(idImage)
         return HttpResponse(status=200)
     if(method=='GET'):
-        metadata=get_metadata(idImage)
-        
+        metadata=get_metadata(idImage)        
         return JsonResponse(metadata.get_metadata_dictionary(),NumpyArrayEncoder)
 
 
