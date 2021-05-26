@@ -11,11 +11,18 @@ class pyradiomics_response:
     def get_dictionary(self) -> dict :
         dictionary=dict()
         for key, value in self.results.items():
-            if isinstance(value,np.ndarray) or isinstance(value, np.float64):
+            if isinstance(value,np.ndarray) or isinstance(value, np.float64) or isinstance(type(value)=='byte'):
                 dictionary[key] = np.array(value)       
             else:
                 dictionary[key] =value
         # print(dictionary)
+        return dictionary
+    
+    def get_metadata_dictionary(self) -> dict :        
+        dictionary=dict()
+        for k in self.results.GetMetaDataKeys():
+            v = self.results.GetMetaData(k)
+            dictionary[v] = np.array(k)             
         return dictionary
 
 class NumpyArrayEncoder(JSONEncoder):

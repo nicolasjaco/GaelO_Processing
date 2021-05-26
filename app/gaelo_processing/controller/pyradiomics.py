@@ -14,7 +14,7 @@ def handle(request, idImage='', idMask=''):
     method = request.method
     if(method == 'POST'):
         json_payload = request.read()
-        pyradiomics_response=post_radiomics(json_payload, idImage, idMask)
+        pyradiomics_response=post_radiomics(json_payload, idImage, idMask)        
         return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder)
 
 def post_radiomics(json_payload :str , idImage :int, idMask :int) -> JsonResponse:

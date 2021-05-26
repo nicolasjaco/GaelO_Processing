@@ -40,6 +40,5 @@ def get_image_id():
         if os.path.isfile(os.path.join(storage_folder, f)):            
             id=f[6:-4]                      
             liste_id.append(id)
-
     json_list=json.dumps(liste_id)                  
     return json_list

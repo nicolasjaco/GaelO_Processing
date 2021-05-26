@@ -1,7 +1,8 @@
 from ..data_object.pyradiomics_response import pyradiomics_response
+from ..data_object.pyradiomics_response import NumpyArrayEncoder
 
 import os
-import nibabel as nib
+import SimpleITK as sitk
 
 from django.http import HttpResponse, JsonResponse
 from django.conf import settings
@@ -12,7 +13,9 @@ def handle(request, idImage = ''):
         delete_image(idImage)
         return HttpResponse(status=200)
     if(method=='GET'):
-        return JsonResponse
+        metadata=get_metadata(idImage)
+        
+        return JsonResponse(metadata.get_metadata_dictionary(),NumpyArrayEncoder)
 
 
 def delete_image(idImage :int) -> None :
@@ -26,7 +29,9 @@ def delete_image(idImage :int) -> None :
     os.remove(settings.STORAGE_DIR+"/image/image_"+str(idImage)+".nii")
 
 def get_metadata(idImage :int) :
-    image = 'C:/Users/Nicolas/Desktop/Img_Stage/image_'+str(idImage)+'.nii'
-    image = nib.load(image)
-    image_header = image.header
-    return pyradiomics_response(image_header)
+    image =settings.STORAGE_DIR+"/image/image_"+str(idImage)+".nii"
+    results=sitk.ReadImage(image)    
+    return pyradiomics_response(results)
+
+
+

@@ -28,18 +28,15 @@
 #         }
 #         }
 #         response = c.post('/app/radiomics/image/8/mask/8',setting, content_type='application/json')
+        
 #         self.assertTrue(response.status_code == 200)
+#         print('validate')
 
-#     def test_delete_image(self):
-#         image = open(settings.STORAGE_DIR+'/image/image_3.nii', 'wb')
-#         image.close()
-#         c = Client()
-#         response = c.delete('/app/image/3')
-#         self.assertTrue(response.status_code == 200)
 
-#     def test_delete_mask(self):
-#         mask = open(settings.STORAGE_DIR+'/mask/mask_3.nii', 'wb')
-#         mask.close()
-#         c = Client()
-#         response = c.delete('/app/mask/3')
-#         self.assertTrue(response.status_code == 200)
+
+# #     def test_delete_mask(self):
+# #         mask = open(settings.STORAGE_DIR+'/mask/mask_3.nii', 'wb')
+# #         mask.close()
+# #         c = Client()
+# #         response = c.delete('/app/mask/3')
+# #         self.assertTrue(response.status_code == 200)
