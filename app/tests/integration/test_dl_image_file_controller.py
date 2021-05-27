@@ -8,7 +8,6 @@ class MyTest(TestCase):
 
     def test_dl_image_file_controller(self):
         c=Client()
-        response=c.get('app/image/8/file')
-        print(response.status_code)
+        response=c.get('/app/image/8/file')        
         self.assertTrue(response.status_code == 200)     
         print('validate')
