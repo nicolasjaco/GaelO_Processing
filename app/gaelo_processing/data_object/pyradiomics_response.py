@@ -1,5 +1,5 @@
-import json
 import numpy as np
+
 from json import JSONEncoder
 from collections import OrderedDict
 
@@ -16,13 +16,6 @@ class pyradiomics_response:
             else:
                 dictionary[key] =value
         # print(dictionary)
-        return dictionary
-    
-    def get_metadata_dictionary(self) -> dict :        
-        dictionary=dict()
-        for k in self.results.GetMetaDataKeys():
-            v = self.results.GetMetaData(k)
-            dictionary[v] = np.array(k)             
         return dictionary
 
 class NumpyArrayEncoder(JSONEncoder):

@@ -1,13 +1,16 @@
-from django.forms.fields import JSONString
-from google.protobuf.wrappers_pb2 import Int64Value
-from tensorflow_serving.apis.model_pb2 import ModelSpec
-from tensorflow_serving.apis.predict_pb2 import PredictRequest, PredictResponse
-from tensorflow_serving.apis import prediction_service_pb2_grpc
 import grpc
 import tensorflow as tf
 import numpy as np
-from PIL import Image
 import json
+
+
+from PIL import Image
+# from django.forms.fields import JSONString
+from google.protobuf.wrappers_pb2 import Int64Value
+from tensorflow_serving.apis.model_pb2 import ModelSpec
+from tensorflow_serving.apis.predict_pb2 import PredictRequest
+from tensorflow_serving.apis import prediction_service_pb2_grpc
+
 
 class Tensorflow:
     def predict(self, model_name:str , version:int):

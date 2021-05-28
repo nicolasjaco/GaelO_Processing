@@ -1,5 +1,6 @@
 from ..data_object.pyradiomics_response import pyradiomics_response
 from ..data_object.pyradiomics_response import NumpyArrayEncoder
+from ..models.SitkImage import get_metadata_dictionary
 
 import os
 import SimpleITK as sitk
@@ -14,8 +15,7 @@ def handle(request, idMask = ''):
         return HttpResponse(status=200)
     if(method=='GET'):
         metadata=get_metadata(idMask)        
-        return JsonResponse(metadata.get_metadata_dictionary(),NumpyArrayEncoder)   
-    
+        return JsonResponse(metadata, NumpyArrayEncoder)   
         
 def delete_mask(idMask :int) -> None :
     """[Delete the Mask]
@@ -27,9 +27,8 @@ def delete_mask(idMask :int) -> None :
         """       
     os.remove(settings.STORAGE_DIR+"/mask/mask_"+str(idMask)+".nii")
 
-
 def get_metadata(idMask :int) :
-    image =settings.STORAGE_DIR+"/image/image_"+str(idMask)+".nii"
-    results=sitk.ReadImage(image)    
-    return pyradiomics_response(results)
+    path =settings.STORAGE_DIR+"/image/image_"+str(idMask)+".nii"
+    image=sitk.ReadImage(path)   
+    return get_metadata_dictionary(image)
 

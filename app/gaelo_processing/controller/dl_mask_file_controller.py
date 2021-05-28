@@ -1,7 +1,7 @@
-from django.conf import settings
-from django.http import HttpResponse, JsonResponse, request
 import tempfile
-import os
+
+from django.conf import settings
+from django.http import HttpResponse
 
 def handle(request,idMask=''):
     method = request.method 

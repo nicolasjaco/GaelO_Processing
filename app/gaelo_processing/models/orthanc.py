@@ -1,7 +1,5 @@
 import requests
 
-# import tempfile
-
 class Orthanc:
 
     def get_zip_from_orthanc(self, orthanc_series_id):
