@@ -15,5 +15,5 @@ urlpatterns = [
     path('image',image_controller.handle,name='image'),
     path('mask',mask_controller.handle,name='mask'),
     path('image/<str:idImage>/file',dl_image_file_controller.handle,name='dl_image_file'),
-    path('image/<str:idMask>/file',dl_mask_file_controller.handle,name='dl_mask_file')              
+    path('mask/<str:idMask>/file',dl_mask_file_controller.handle,name='dl_mask_file')              
 ]
