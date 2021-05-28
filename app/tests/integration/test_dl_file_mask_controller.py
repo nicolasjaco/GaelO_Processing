@@ -10,4 +10,4 @@ class MyTest(TestCase):
         c=Client()
         response=c.get('/app/mask/8/file')        
         self.assertTrue(response.status_code == 200)     
-        print('validate')
+        print('test dl_file_mask_controller validate')

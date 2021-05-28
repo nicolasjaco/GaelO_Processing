@@ -17,6 +17,5 @@ class Utips:
                 source = my_zip.open(member)
                 target = open(os.path.join(destination, filename), "wb")
                 with source, target:                   
-                    shutil.copyfileobj(source, target)   
-        # return destination
+                    shutil.copyfileobj(source, target)
         # os.remove(zip_file)

@@ -4,8 +4,6 @@ from django.test import TestCase
 from django.test import Client
 from django.conf import settings
 
-
-
 class MyTest(TestCase):  
 
     def test_create_mask(self):
@@ -15,10 +13,10 @@ class MyTest(TestCase):
         c = Client()
         response = c.post('/app/mask', data=encoded.decode(),content_type='image/nii')
         self.assertTrue(response.status_code == 200)
-        print('validate')
+        print('test create mask validate')
 
     def test_get_id(self):
         c=Client()
         response=c.get('/app/mask')
         self.assertTrue(response.status_code == 200)
-        print('validate')
+        print('test get_id for mask validate')

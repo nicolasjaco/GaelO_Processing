@@ -30,6 +30,6 @@ def get_mask_id():
     liste_id=[] 
     for file in os.listdir(storage_folder):
         if os.path.isfile(os.path.join(storage_folder, file)):            
-            id=file[5:-4]                      
+            id=file[6:-4]                      
             liste_id.append(id)               
     return liste_id

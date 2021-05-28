@@ -10,9 +10,10 @@ class MyTest(TestCase):
         c = Client()
         response = c.delete('/app/image/3')
         self.assertTrue(response.status_code == 200)
+        print('test delte_image validate')
 
     def test_get_metadata(self):
         c=Client()
         response=c.get('/app/image/8')
         self.assertTrue(response.status_code == 200)
-        print('validate')
+        print('test get_metadate for image validate')
