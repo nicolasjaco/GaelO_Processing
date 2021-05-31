@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import environ
 
 from pathlib import Path
 
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR =Path(__file__).resolve().parent.parent
@@ -29,6 +33,12 @@ DEBUG = True #True de base
 
 ALLOWED_HOSTS = ['testserver','localhost']
 
+TENSORFLOW_SERVING_ADDRESS : env('TENSORFLOW_SERVING_ADDRESS')
+TENSORFLOW_SERVING_PORT : env('TENSORFLOW_SERVING_PORT')
+ORTHANC_ADDRESS: env('ORTHANC_ADDRESS')
+ORTHANC_PORT: env('ORTHANC_PORT')
+ORTHANC_USERNAME: env('ORTHANC_USERNAME')
+ORTHANC_PASSWORD: env('ORTHANC_PASSWORD')
 
 # Application definition
 

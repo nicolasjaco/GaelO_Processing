@@ -4,8 +4,6 @@ services:
 
     gaeloprocessing:
         image: salimkanoun/gaeloprocessing
-        build:
-            networks: 'host'
         container_name: gaeloprocessing
         restart: unless-stopped
         ports: ["8001:8000"]
