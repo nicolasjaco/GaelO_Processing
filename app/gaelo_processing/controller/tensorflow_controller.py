@@ -10,5 +10,6 @@ def handle(request, model_name=''):
         return JsonResponse(tensorflow_response)
 
 def model(idImage, model_name):
-     #instancier correctement en appeleant la bonne méthode
-    return AbstractInference.get_result(idImage,model_name)
+    abstact=AbstractInference.predict()
+    #instancier correctement en appeleant la bonne méthode
+    return abstact(idImage,model_name)

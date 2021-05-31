@@ -11,7 +11,7 @@ class pyradiomics_response:
     def get_dictionary(self) -> dict :
         dictionary=dict()
         for key, value in self.results.items():
-            if isinstance(value,np.ndarray) or isinstance(value, np.float64) or isinstance(type(value)=='byte'):
+            if isinstance(value,np.ndarray) or isinstance(value, np.float64):
                 dictionary[key] = np.array(value)       
             else:
                 dictionary[key] =value

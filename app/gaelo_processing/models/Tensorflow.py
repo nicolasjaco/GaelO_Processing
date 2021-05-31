@@ -3,7 +3,6 @@ import tensorflow as tf
 import numpy as np
 import json
 
-
 from PIL import Image
 # from django.forms.fields import JSONString
 from google.protobuf.wrappers_pb2 import Int64Value
@@ -42,4 +41,3 @@ class Tensorflow:
             resultDict[str(output)] = list(outputResult.float_val)
 
         # print(json.dumps(resultDict))
-        

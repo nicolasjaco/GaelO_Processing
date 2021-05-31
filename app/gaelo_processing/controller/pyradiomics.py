@@ -27,8 +27,8 @@ def post_radiomics(json_payload :str , idImage :int, idMask :int) -> JsonRespons
         Returns:
            JsonResponse: [PyRadiomics results]
     """
-    image =settings.STORAGE_DIR+"/image_"+str(idImage)+".nii"
-    mask = settings.STORAGE_DIR+"/mask_"+str(idMask)+".nii"
+    image =settings.STORAGE_DIR+"/image/image_"+str(idImage)+".nii"
+    mask = settings.STORAGE_DIR+"/mask/mask_"+str(idMask)+".nii"
     
     # We check that images are existing in the local storage
     try:
