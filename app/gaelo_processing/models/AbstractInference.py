@@ -12,7 +12,7 @@ class AbstractInference(ABC):
     def predict(self, idImage:str):
         # appel de pre_process
         input_tensor=self.pre_process(idImage)
-        channel = grpc.insecure_channel('tfserving:8500')        
+        channel = grpc.insecure_channel('localhost:8500')        
         version = Int64Value(value=1)#version hardcodee
         model_spec = ModelSpec(version=version, name=self.get_model_name(), signature_name='serving_default')
         grpc_request = PredictRequest(model_spec= model_spec)

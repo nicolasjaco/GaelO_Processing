@@ -12,6 +12,7 @@ requests = "*"
 dicom-to-cnn = "*"
 tensorflow = "==2.5.0"
 tensorflow-serving-api = "==2.5.0"
+django-environ = "*"
 
 [dev-packages]
 

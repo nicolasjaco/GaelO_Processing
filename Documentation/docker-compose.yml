@@ -15,7 +15,9 @@ services:
             ORTHANC_ADDRESS: "http://orthanc"
             ORTHANC_PORT: "8042"
             ORTHANC_USERNAME: "salim"
-            ORTHANC_PASSWORD: "salim" 
+            ORTHANC_PASSWORD: "salim"
+            TENSORFLOW_SERVING_ADDRESS : 'tfserving'
+            TENSORFLOW_SERVING_PORT : 8500
 
     orthanc:
         image: osimis/orthanc:21.5.1
@@ -51,6 +53,7 @@ services:
         volumes: ["D:/data_docker/model:/models/aquisition_field_model"]
         environment:
             MODEL_NAME: "aquisition_field_model"
+
 
 
 
