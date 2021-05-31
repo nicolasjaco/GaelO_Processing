@@ -254,11 +254,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:2d932ea08814f745863fd20172fe7de4794ad74567db78f2377343e24520a5b6",
-                "sha256:c2e27fa8b6c8b34ebfcd4056ae2ca290e36250d1fbeceec85c1c67c711449fac"
+                "sha256:960d52ba7c21377c990412aca380bf3642d734c2eaab78a2c39319f67c6a5786",
+                "sha256:e592faad8de1bda9fe920cf41e15261e7131bcf266c30306eec00e8e225c1dd5"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==4.3.1"
+            "version": "==4.4.0"
         },
         "jsonschema": {
             "hashes": [
@@ -728,11 +728,11 @@
         },
         "ruamel.yaml": {
             "hashes": [
-                "sha256:5605cb8ceeebaeed85ae4e97fc80547eca1b3537c163404ffe83f26adf5c9ce7",
-                "sha256:748bbdddf9e7f6e1aad9481dfdd93a42f9c39c45821a0f09a31309cd0086e803"
+                "sha256:25c3eaf4f0c52bd15c50c39b100a32168891240f4d2177a4690d5d9b85944bbe",
+                "sha256:5c3fa739bbedd2f23769656784e671c6335d17a5bf163c3c3901d8663c0af287"
             ],
             "markers": "python_version >= '3'",
-            "version": "==0.17.6"
+            "version": "==0.17.7"
         },
         "ruamel.yaml.clib": {
             "hashes": [
