@@ -15,7 +15,8 @@ class pyradiomics_adapter:
 
         Returns:
             pyradiomics_response: [Handler for pyRadiomics reponse]
-        """              
+        """        
+             
         extractor = featureextractor.RadiomicsFeatureExtractor()
         extractor.loadJSONParams(json_parms)
         results=extractor.execute(image,mask)        

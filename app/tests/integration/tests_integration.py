@@ -28,7 +28,6 @@ class MyTest(TestCase):
         }
         }
         response = c.post('/app/radiomics/image/8/mask/8',setting, content_type='application/json')
-        
         self.assertTrue(response.status_code == 200)
         print('test post for radiomics validate')
 
