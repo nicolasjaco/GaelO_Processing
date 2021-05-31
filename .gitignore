@@ -10,3 +10,4 @@ __pycache__/
 *.so
 .vscode/settings.json
 orthanc.zip
+gaelo_processing/.env
