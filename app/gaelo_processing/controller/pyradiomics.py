@@ -15,7 +15,7 @@ def handle(request, idImage='', idMask=''):
         pyradiomics_response=post_radiomics(json_payload, idImage, idMask)        
         return JsonResponse(pyradiomics_response.get_dictionary(), NumpyArrayEncoder)
 
-def post_radiomics(json_payload :str , idImage :int, idMask :int) -> JsonResponse:
+def post_radiomics(json_payload :str , idImage :str, idMask :str) -> JsonResponse:
     """
     [Trigger post the radiomics results ]
 
@@ -27,8 +27,8 @@ def post_radiomics(json_payload :str , idImage :int, idMask :int) -> JsonRespons
         Returns:
            JsonResponse: [PyRadiomics results]
     """
-    image =settings.STORAGE_DIR+"/image/image_"+str(idImage)+".nii"
-    mask = settings.STORAGE_DIR+"/mask/mask_"+str(idMask)+".nii"
+    image =settings.STORAGE_DIR+"/image/image_"+idImage+".nii"
+    mask = settings.STORAGE_DIR+"/mask/mask_"+idMask+".nii"
     
     # We check that images are existing in the local storage
     try:

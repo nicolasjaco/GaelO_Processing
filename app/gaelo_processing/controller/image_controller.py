@@ -1,7 +1,6 @@
 import hashlib
 import base64
 import os
-import json
 
 from django.conf import settings
 from django.http import JsonResponse
@@ -22,6 +21,8 @@ def create_image(data :str) -> str :
        Content of the POST request
         
         Create a new instance image with unique ID in HASH  
+        Returns: 
+        [str]:[id image]
         """    
     data_path=settings.STORAGE_DIR      
     image_md5 = hashlib.md5(str(data).encode())

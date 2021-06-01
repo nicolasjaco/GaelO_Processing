@@ -21,6 +21,8 @@ def create_mask(data :str ) -> str:
        Content of the POST request
         
         Create a new instance mask with unique ID in HASH 
+        Returns:
+        [str]:[id mask]
     """
     data_path=settings.STORAGE_DIR   
     mask_md5 = hashlib.md5(str(data).encode())
