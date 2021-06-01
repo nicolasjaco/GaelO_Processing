@@ -16,12 +16,12 @@ def handle(request):
         id_list= get_image_id()
         return JsonResponse(id_list,safe=False)
 
-def create_image(data :int) -> str : 
+def create_image(data :str) -> str : 
     """[Store an image with unique ID]
 
        Content of the POST request
         
-        Create a new instance image with unique ID    
+        Create a new instance image with unique ID in HASH  
         """    
     data_path=settings.STORAGE_DIR      
     image_md5 = hashlib.md5(str(data).encode())
@@ -34,6 +34,11 @@ def create_image(data :int) -> str :
 
 
 def get_image_id():
+    """
+
+    Returns:
+        [list]: [Return a list with all Image id content in the storage]
+    """
     storage_folder=settings.STORAGE_DIR+'/image'       
     liste_id=[]    
     for f in os.listdir(storage_folder):

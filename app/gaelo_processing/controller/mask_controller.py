@@ -16,6 +16,12 @@ def handle(request):
         return JsonResponse(id_list,safe=False)
 
 def create_mask(data :str ) -> str:
+    """[Store an mask with unique ID]
+
+       Content of the POST request
+        
+        Create a new instance mask with unique ID in HASH 
+    """
     data_path=settings.STORAGE_DIR   
     mask_md5 = hashlib.md5(str(data).encode())
     mask=base64.b64decode(data)  
@@ -26,6 +32,11 @@ def create_mask(data :str ) -> str:
     return id_mask
 
 def get_mask_id():
+    """
+
+    Returns:
+        [list]: [Return a list with all Mask id content in the storage]
+    """
     storage_folder=settings.STORAGE_DIR+'/image'       
     liste_id=[] 
     for file in os.listdir(storage_folder):

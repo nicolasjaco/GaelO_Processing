@@ -10,7 +10,8 @@ services:
         volumes: ["D:/Code/Gaelo_Processing:/home/gaelo_processing:Z"]
         environment:
             TZ: "Europe/Paris"
-            ORTHANC_ADDRESS: "http://orthanc"
+            ORTHANC_PROTOCOL: 'http://'
+            ORTHANC_ADDRESS: "orthanc"
             ORTHANC_PORT: "8042"
             ORTHANC_USERNAME: "salim"
             ORTHANC_PASSWORD: "salim"

@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import grpc
 
+from django.conf import settings
 from google.protobuf.wrappers_pb2 import Int64Value
 from tensorflow.core.framework.tensor_pb2 import TensorProto
 from tensorflow_serving.apis.model_pb2 import ModelSpec
@@ -10,16 +11,24 @@ from tensorflow_serving.apis import prediction_service_pb2_grpc
 class AbstractInference(ABC):
 
     def predict(self, idImage:str):
-        # appel de pre_process
+        """[summary]
+
+        Args:
+            idImage (str): [description]
+
+        Returns:
+            [dictionary]: [return formated dictionary ready ready to be sent as a JSON]
+        """
+        # call pre_process
         input_tensor=self.pre_process(idImage)
-        channel = grpc.insecure_channel('localhost:8500')        
+        channel = grpc.insecure_channel(settings.TENSORFLOW_SERVING_ADDRESS+':'+settings.TENSORFLOW_SERVING_PORT)        
         version = Int64Value(value=1)#version hardcodee
         model_spec = ModelSpec(version=version, name=self.get_model_name(), signature_name='serving_default')
         grpc_request = PredictRequest(model_spec= model_spec)
         grpc_request.inputs[self.get_input_name()].CopyFrom(input_tensor)
         stub = prediction_service_pb2_grpc.PredictionServiceStub(channel)
         result = stub.Predict(grpc_request,10)
-        #appel de post_process
+        #call post_process
         formated_result=self.post_process(result)
         return formated_result
 

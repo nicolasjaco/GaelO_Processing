@@ -17,7 +17,7 @@ def handle(request, idMask = ''):
         metadata=get_metadata(idMask)        
         return JsonResponse(metadata, NumpyArrayEncoder)   
         
-def delete_mask(idMask :int) -> None :
+def delete_mask(idMask :str) -> None :
     """[Delete the Mask]
 
         Args:
@@ -25,10 +25,18 @@ def delete_mask(idMask :int) -> None :
         
         Removes the specified mask     
         """       
-    os.remove(settings.STORAGE_DIR+"/mask/mask_"+str(idMask)+".nii")
+    os.remove(settings.STORAGE_DIR+"/mask/mask_"+idMask+".nii")
 
-def get_metadata(idMask :int) :
-    path =settings.STORAGE_DIR+"/image/image_"+str(idMask)+".nii"
+def get_metadata(idMask :str) -> dict :
+    """[Get the metadata from an mask]
+
+    Args:
+        idImage (str): [Input mask]
+
+    Returns:
+        dict: [return formated dictionary ready ready to be sent as a JSON]
+    """
+    path =settings.STORAGE_DIR+"/image/image_"+idMask+".nii"
     image=sitk.ReadImage(path)   
     return get_metadata_dictionary(image)
 
