@@ -24,6 +24,8 @@ def get_mask_file(idMask :str) -> None:
     mask_path=settings.STORAGE_DIR+'/mask/mask_'+idMask+'.nii'
     if os.path.exists(mask_path):
         with open(mask_path, 'rb') as mask:
-            return HttpResponse(mask, content_type="image/nii")
+            response = HttpResponse(mask.read(), content_type="image/nii")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(mask_path)+'.nii'
+            return response
     else: raise Http404
    

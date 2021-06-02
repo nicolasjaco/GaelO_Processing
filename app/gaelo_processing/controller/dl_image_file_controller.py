@@ -24,5 +24,7 @@ def download_image_file(idImage :str) -> None:
     image_path=settings.STORAGE_DIR+'/image/image_'+idImage+'.nii'
     if os.path.exists(image_path):
         with open(image_path, 'rb') as image:
-            return HttpResponse(image, content_type="image/nii")
+            response = HttpResponse(image.read(), content_type="image/nii")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(image_path)+'.nii'
+            return response
     else: raise Http404

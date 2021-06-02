@@ -11,12 +11,12 @@ class MyTest(TestCase):
         data = open(data_path, "rb").read()
         encoded = base64.b64encode(data)
         c = Client()
-        response = c.post('/app/image', data=encoded.decode(),content_type='image/nii')
+        response = c.post('/app/images', data=encoded.decode(),content_type='image/nii')
         self.assertTrue(response.status_code == 200)
         print('test create image_validate validate')
 
     def test_get_id(self):
         c=Client()
-        response=c.get('/app/image')
+        response=c.get('/app/images')
         self.assertTrue(response.status_code == 200)
         print('test get_id for images validate')

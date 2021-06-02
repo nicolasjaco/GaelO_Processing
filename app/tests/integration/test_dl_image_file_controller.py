@@ -6,6 +6,6 @@ class MyTest(TestCase):
 
     def test_download_image_file(self):
         c=Client()
-        response=c.get('/app/image/8/file')
+        response=c.get('/app/images/8/file')
         self.assertTrue(response.status_code == 200)     
         print('test dl_image_file_controller validate')

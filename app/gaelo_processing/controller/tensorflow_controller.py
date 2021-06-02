@@ -3,6 +3,7 @@ import importlib
 
 from django.http import JsonResponse
 
+from ..models.Idex_model import model_list
 from ..models.Inferences import InferenceAcquisitionField #import required
 
 def handle(request, model_name=''):
@@ -11,7 +12,7 @@ def handle(request, model_name=''):
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)
         tensorflow_response=prediction(body['id'],model_name)
-        # print(tensorflow_response)
+        print(tensorflow_response)
         return JsonResponse(tensorflow_response)
 
 def prediction(idImage:str, model_name:str): 
@@ -25,8 +26,6 @@ def __getInferenceInstanceByName(class_name):
     return InferenceClass()
 
 def __getInferenceModel(model_name):
-    model_list = {
-        'aquisition_field_model' : 'InferenceAcquisitionField'
-    }
 
     return __getInferenceInstanceByName(model_list[model_name])
+

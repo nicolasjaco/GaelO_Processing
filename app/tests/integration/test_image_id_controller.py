@@ -8,12 +8,12 @@ class MyTest(TestCase):
         image = open(settings.STORAGE_DIR+'/image/image_3.nii', 'wb')
         image.close()
         c = Client()
-        response = c.delete('/app/image/3')
+        response = c.delete('/app/images/3')
         self.assertTrue(response.status_code == 200)
         print('test delte_image validate')
 
     def test_get_metadata(self):
         c=Client()
-        response=c.get('/app/image/8')
+        response=c.get('/app/images/8')
         self.assertTrue(response.status_code == 200)
         print('test get_metadate for image validate')
