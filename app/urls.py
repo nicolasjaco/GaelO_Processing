@@ -10,6 +10,7 @@ from .gaelo_processing.controller import dl_mask_file_controller
 from .gaelo_processing.controller import tensorflow_controller
 from .gaelo_processing.controller import dicom_zip_controller
 from .gaelo_processing.controller import models_list_controller
+from .gaelo_processing.controller import models_metadata_controller
 
 urlpatterns = [
     path('radiomics/image/<str:idImage>/mask/<str:idMask>',pyradiomics.handle,name='post_radiomics'),
@@ -20,7 +21,7 @@ urlpatterns = [
     path('images/<str:idImage>/file',dl_image_file_controller.handle,name='dl_image_file'),
     path('masks/<str:idMask>/file',dl_mask_file_controller.handle,name='dl_mask_file'),   
     path('models/<str:model_name>/inference', tensorflow_controller.handle,name='get_inference'),
-    # path('models/<str:model_name>/metadata'),
+    path('models/<str:model_name>/metadata',models_metadata_controller.handle,name='model_metadata'),
     path('models',models_list_controller.handle,name='get_list_models'),
-    path('dicom',dicom_zip_controller.handle,name='get_dicom_zip')
+    path('dicom',dicom_zip_controller.handle,name='get_dicom_zip'),
 ]
