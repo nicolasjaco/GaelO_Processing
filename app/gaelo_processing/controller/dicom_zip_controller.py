@@ -1,12 +1,12 @@
 import tempfile
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 
 def handle(request):
     method = request.method 
     if(method=='POST'):
         zip_file=request.read()
-        dicom=get_dicom_zip(zip_file)
+        filename=get_dicom_zip(zip_file)
         return HttpResponse(status=200)
 
 def get_dicom_zip(zip_file):
@@ -14,4 +14,5 @@ def get_dicom_zip(zip_file):
     file = open(destination+'/dicom.zip', 'wb')
     file.write(zip_file)
     file.close()
+    #TODO : UNZIP and CREATE NIFTI
     return file.name

@@ -8,7 +8,6 @@ from django.conf import settings
 from ...gaelo_processing.adapter.pyradiomics_adapter import pyradiomics_adapter
 
 
-
 class MyTest(TestCase):
 
     def test_pyrad(self):
@@ -32,18 +31,14 @@ class MyTest(TestCase):
                 "padDistance": 0,
                 "resegmentMode": "absolute",
                 "resegmentShape": True
-                }
+            }
         }
 
         img_load = str(settings.BASE_DIR) + '/app/storage/image/image_8.nii'
         img_pt = sitk.ReadImage(img_load)
         mask_load = str(settings.BASE_DIR) + '/app/storage/mask/mask_8.nii'
-        img_mask = sitk.ReadImage(mask_load)      
+        img_mask = sitk.ReadImage(mask_load)
         pyradiomics_adapter_instance = pyradiomics_adapter()
-        self.assertTrue(pyradiomics_adapter_instance.calculate(img_pt, img_mask, json.dumps(setting))!= None)
+        self.assertTrue(pyradiomics_adapter_instance.calculate(
+            img_pt, img_mask, json.dumps(setting)) != None)
         print('test pyrad validate')
-
-    
-
-
-    

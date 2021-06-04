@@ -1,9 +1,6 @@
-import base64
-import SimpleITK as sitk
-
 from django.test import TestCase
 from django.test import Client
-from django.conf import settings
+
 
 class MyTest(TestCase):
 
@@ -27,9 +24,7 @@ class MyTest(TestCase):
             "interpolator": "sitkLinear"
         }
         }
-        response = c.post('/app/radiomics/image/8/mask/8',setting, content_type='application/json')
+        response = c.post('/app/radiomics/image/8/mask/8',
+                          setting, content_type='application/json')
         self.assertTrue(response.status_code == 200)
         print('test post for radiomics validate')
-
-
-

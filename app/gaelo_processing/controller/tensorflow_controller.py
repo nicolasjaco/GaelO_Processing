@@ -3,29 +3,27 @@ import importlib
 
 from django.http import JsonResponse
 
-from ..models.Idex_model import model_list
-from ..models.Inferences import InferenceAcquisitionField #import required
+from ..models.Index_model import model_list
+from ..models.AbstractInference import AbstractInference
+
 
 def handle(request, model_name=''):
     method = request.method
     if(method == 'POST'):
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)
-        tensorflow_response=prediction(body['id'],model_name)
-        print(tensorflow_response)
+        tensorflow_response = prediction(body['id'], model_name)
         return JsonResponse(tensorflow_response)
 
-def prediction(idImage:str, model_name:str): 
+
+def prediction(idImage: str, model_name: str) -> dict:
     inferenceInstance = __getInferenceModel(model_name)
-    results=inferenceInstance.predict(idImage)
+    results = inferenceInstance.predict(idImage)
     return results
 
-def __getInferenceInstanceByName(class_name):
-    module = getattr(importlib.import_module("app.gaelo_processing.models.Inferences"), class_name)
-    InferenceClass = getattr(module, class_name)
+
+def __getInferenceModel(model_name) -> AbstractInference:
+    class_name = model_list[model_name]
+    InferenceClass = getattr(importlib.import_module(
+        "app.gaelo_processing.models.Inferences."+class_name), class_name)
     return InferenceClass()
-
-def __getInferenceModel(model_name):
-
-    return __getInferenceInstanceByName(model_list[model_name])
-

@@ -1,10 +1,10 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 
-from ..models.Idex_model import model_list
+from ..models.Index_model import model_list
+
 
 def handle(request):
-    method = request.method 
-    if(method=='GET'):
-        list=model_list
+    method = request.method
+    if(method == 'GET'):
+        list = model_list
         return JsonResponse(list)
-

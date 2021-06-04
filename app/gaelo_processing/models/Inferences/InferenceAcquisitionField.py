@@ -54,7 +54,7 @@ class InferenceAcquisitionField(AbstractInference):
                 if(i == 1) : leg='Knee'
                 if(i == 2) : leg='Foot'
 
-        dict={'left_arm':left_arm,'right_arm':right_arm,'head':head,'leg':leg}
+        dict={'left_arm_down':left_arm,'right_arm_down':right_arm,'head':head,'leg':leg}
         
         return dict
 

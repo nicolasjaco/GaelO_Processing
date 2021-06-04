@@ -25,6 +25,6 @@ class ErrorHandlerMiddleware:
                 )
                 # Do now whatever with this message
                 # e.g. requests.post(<slack channel/teams channel>, data=message)
-        else :
-            if isinstance(exception, GaelOException) :          
+        else:
+            if isinstance(exception, GaelOException):
                 return exception.get_response()

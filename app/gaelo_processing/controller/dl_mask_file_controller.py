@@ -1,15 +1,17 @@
 import os
 
 from django.conf import settings
-from django.http import HttpResponse,Http404
+from django.http import HttpResponse, Http404
 
-def handle(request,idMask=''):
-    method = request.method 
-    if(method=='GET'):
+
+def handle(request, idMask=''):
+    method = request.method
+    if(method == 'GET'):
         get_mask_file(idMask)
         return HttpResponse(status=200)
 
-def get_mask_file(idMask :str) -> None:
+
+def get_mask_file(idMask: str) -> None:
     """[Download the mask file]
 
     Args:
@@ -21,11 +23,12 @@ def get_mask_file(idMask :str) -> None:
     Returns:
         [NONE]
     """
-    mask_path=settings.STORAGE_DIR+'/mask/mask_'+idMask+'.nii'
+    mask_path = settings.STORAGE_DIR+'/mask/mask_'+idMask+'.nii'
     if os.path.exists(mask_path):
         with open(mask_path, 'rb') as mask:
             response = HttpResponse(mask.read(), content_type="image/nii")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(mask_path)+'.nii'
+            response['Content-Disposition'] = 'inline; filename=' + \
+                os.path.basename(mask_path)+'.nii'
             return response
-    else: raise Http404
-   
+    else:
+        raise Http404

@@ -4,12 +4,14 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.http.response import Http404
 
-def handle(request,idImage=''):
-    method = request.method 
-    if(method=='GET'):
+
+def handle(request, idImage=''):
+    method = request.method
+    if(method == 'GET'):
         return download_image_file(idImage)
 
-def download_image_file(idImage :str) -> None:
+
+def download_image_file(idImage: str) -> None:
     """[Download the image file]
 
     Args:
@@ -21,10 +23,12 @@ def download_image_file(idImage :str) -> None:
     Returns:
         [NONE]
     """
-    image_path=settings.STORAGE_DIR+'/image/image_'+idImage+'.nii'
+    image_path = settings.STORAGE_DIR+'/image/image_'+idImage+'.nii'
     if os.path.exists(image_path):
         with open(image_path, 'rb') as image:
             response = HttpResponse(image.read(), content_type="image/nii")
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(image_path)+'.nii'
+            response['Content-Disposition'] = 'inline; filename=' + \
+                os.path.basename(image_path)+'.nii'
             return response
-    else: raise Http404
+    else:
+        raise Http404
