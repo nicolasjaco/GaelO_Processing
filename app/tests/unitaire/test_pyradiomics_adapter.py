@@ -8,7 +8,7 @@ from django.conf import settings
 from ...gaelo_processing.adapter.pyradiomics_adapter import pyradiomics_adapter
 
 
-class MyTest(TestCase):
+class test_pyradiomics_adapter(TestCase):
 
     def test_pyrad(self):
         setting = {

@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test import Client
 
 
-class MyTest(TestCase):
+class test_tensorflow_controller(TestCase):
     def test_predict(self):
         setting = {"id": "2.16.840.1.113669.632.20.870421.10000713812_mip_ct"}
         c = Client()

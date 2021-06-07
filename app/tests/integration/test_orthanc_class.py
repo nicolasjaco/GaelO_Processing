@@ -3,7 +3,7 @@ from django.test import TestCase
 from ...gaelo_processing.models.Orthanc import Orthanc
 
 
-class MyTest(TestCase):
+class test_orthanc_class(TestCase):
     def test_get_zip_from_orthanc(self):
         ortanc_instance = Orthanc()
         zip_path = ortanc_instance.get_zip_from_orthanc(

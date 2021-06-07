@@ -3,7 +3,7 @@ from django.test import Client
 from django.conf import settings
 
 
-class MyTest(TestCase):
+class test_image_id_controller(TestCase):
 
     def test_delete_image(self):
         image = open(settings.STORAGE_DIR+'/image/image_3.nii', 'wb')

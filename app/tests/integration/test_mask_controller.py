@@ -5,7 +5,7 @@ from django.test import Client
 from django.conf import settings
 
 
-class MyTest(TestCase):
+class test_mask_controller(TestCase):
 
     def test_create_mask(self):
         data_path = settings.STORAGE_DIR+"/mask/mask_8.nii"

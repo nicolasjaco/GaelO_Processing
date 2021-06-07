@@ -4,7 +4,7 @@ from django.test import Client
 from ...gaelo_processing.controller import tensorflow_controller
 
 
-class MyTest(TestCase):
+class test_unit_tf_controller(TestCase):
 
     def test_unit_tf_ctrllr(self):
         results = {'right_arm': [0.9999998807907104, 8.830931363945638e-08],

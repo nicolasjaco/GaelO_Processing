@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test import Client
 
 
-class MyTest(TestCase):
+class test_dicom_zip_controller(TestCase):
     def test_get_zip_dicom(self):
         c = Client()
         zip_file = 'orthanc.zip'

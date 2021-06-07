@@ -3,7 +3,7 @@ from django.test import Client
 from django.conf import settings
 
 
-class MyTest(TestCase):
+class test_mask_id_controller(TestCase):
 
     def test_delete_mask(self):
         image = open(settings.STORAGE_DIR+'/mask/mask_3.nii', 'wb')

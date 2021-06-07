@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test import Client
 
 
-class MyTest(TestCase):
+class test_dl_file_mask_controller(TestCase):
 
     def test_dl_mask_file_controller(self):
         c = Client()

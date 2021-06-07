@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>app.gaelo_processing.models package &#8212; gaelo_processing 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="app-gaelo-processing-models-package">
+<h1>app.gaelo_processing.models package<a class="headerlink" href="#app-gaelo-processing-models-package" title="Permalink to this headline">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app.gaelo_processing.models.Inferences.html">app.gaelo_processing.models.Inferences package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app.gaelo_processing.models.Inferences.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.gaelo_processing.models.Inferences.html#module-app.gaelo_processing.models.Inferences.InferenceAcquisitionField">app.gaelo_processing.models.Inferences.InferenceAcquisitionField module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app.gaelo_processing.models.Inferences.html#module-app.gaelo_processing.models.Inferences">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-app.gaelo_processing.models.AbstractInference">
+<span id="app-gaelo-processing-models-abstractinference-module"></span><h2>app.gaelo_processing.models.AbstractInference module<a class="headerlink" href="#module-app.gaelo_processing.models.AbstractInference" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.AbstractInference.AbstractInference">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.models.AbstractInference.</span></span><span class="sig-name descname"><span class="pre">AbstractInference</span></span><a class="headerlink" href="#app.gaelo_processing.models.AbstractInference.AbstractInference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.AbstractInference.AbstractInference.get_input_name">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">get_input_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#app.gaelo_processing.models.AbstractInference.AbstractInference.get_input_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.AbstractInference.AbstractInference.get_model_name">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">get_model_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#app.gaelo_processing.models.AbstractInference.AbstractInference.get_model_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.AbstractInference.AbstractInference.post_process">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">post_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#app.gaelo_processing.models.AbstractInference.AbstractInference.post_process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.AbstractInference.AbstractInference.pre_process">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">pre_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idImage</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">tensorflow.core.framework.tensor_pb2.TensorProto</span><a class="headerlink" href="#app.gaelo_processing.models.AbstractInference.AbstractInference.pre_process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.AbstractInference.AbstractInference.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idImage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#app.gaelo_processing.models.AbstractInference.AbstractInference.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>idImage (str): [description]</p>
+</dd>
+<dt>Returns:</dt><dd><p>[dictionary]: [return formated dictionary ready ready to be sent as a JSON]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-app.gaelo_processing.models.Index_model">
+<span id="app-gaelo-processing-models-index-model-module"></span><h2>app.gaelo_processing.models.Index_model module<a class="headerlink" href="#module-app.gaelo_processing.models.Index_model" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-app.gaelo_processing.models.Orthanc">
+<span id="app-gaelo-processing-models-orthanc-module"></span><h2>app.gaelo_processing.models.Orthanc module<a class="headerlink" href="#module-app.gaelo_processing.models.Orthanc" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.Orthanc.Orthanc">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.models.Orthanc.</span></span><span class="sig-name descname"><span class="pre">Orthanc</span></span><a class="headerlink" href="#app.gaelo_processing.models.Orthanc.Orthanc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.Orthanc.Orthanc.get_zip_from_orthanc">
+<span class="sig-name descname"><span class="pre">get_zip_from_orthanc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orthanc_series_id</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#app.gaelo_processing.models.Orthanc.Orthanc.get_zip_from_orthanc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-app.gaelo_processing.models.SitkImage">
+<span id="app-gaelo-processing-models-sitkimage-module"></span><h2>app.gaelo_processing.models.SitkImage module<a class="headerlink" href="#module-app.gaelo_processing.models.SitkImage" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="app.gaelo_processing.models.SitkImage.get_metadata_dictionary">
+<span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.models.SitkImage.</span></span><span class="sig-name descname"><span class="pre">get_metadata_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">SimpleITK.SimpleITK.Image</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#app.gaelo_processing.models.SitkImage.get_metadata_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-app.gaelo_processing.models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app.gaelo_processing.models" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">gaelo_processing</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Salim Kanoun, Nicolas Jacomi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/app.gaelo_processing.models.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

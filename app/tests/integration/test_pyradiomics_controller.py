@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test import Client
 
 
-class MyTest(TestCase):
+class test_pyradiomics_controller(TestCase):
 
     def test_post(self):
         c = Client()

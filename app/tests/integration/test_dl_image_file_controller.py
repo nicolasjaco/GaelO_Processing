@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 
-class MyTest(TestCase):
+class test_dl_file_image_controller(TestCase):
 
     def test_download_image_file(self):
         c=Client()

@@ -5,7 +5,7 @@ from django.test import Client
 from django.conf import settings
 
 
-class MyTest(TestCase):
+class test_image_controller(TestCase):
 
     def test_create_image(self):
         data_path = settings.STORAGE_DIR+"/image/image_8.nii"
