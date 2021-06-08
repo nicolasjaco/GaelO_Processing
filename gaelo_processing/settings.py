@@ -15,9 +15,7 @@ import environ
 from pathlib import Path
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", __file__)
-import django
-django.setup()
+
 
 # Initialise environment variables
 env = environ.Env()
@@ -45,7 +43,7 @@ ORTHANC_ADDRESS=env('ORTHANC_ADDRESS')
 ORTHANC_PORT=env('ORTHANC_PORT')
 ORTHANC_USERNAME=env('ORTHANC_USERNAME')
 ORTHANC_PASSWORD=env('ORTHANC_PASSWORD')
-# DJANGO_SETTINGS_MODULE=env('DJANGO_SETTINGS_MODULE')
+
 
 # Application definition
 

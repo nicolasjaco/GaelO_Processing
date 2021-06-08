@@ -5,7 +5,10 @@
 body {
     font-family: Georgia, serif;
     font-size: 17px;
-    background-color: #fff;
+    /*background-color: #FFF;*/
+    background-image: url('gaelo.png') ;
+    background-size:100px;
+    background-repeat :no-repeat;
     color: #000;
     margin: 0;
     padding: 0;
