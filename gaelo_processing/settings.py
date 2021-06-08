@@ -16,6 +16,8 @@ from pathlib import Path
 
 import os
 
+import swagger_ui
+
 
 # Initialise environment variables
 env = environ.Env()
@@ -44,6 +46,8 @@ ORTHANC_PORT=env('ORTHANC_PORT')
 ORTHANC_USERNAME=env('ORTHANC_USERNAME')
 ORTHANC_PASSWORD=env('ORTHANC_PASSWORD')
 
+SWAGGER_YAML_FILE='../../Documentation/swagger.yml'
+
 
 # Application definition
 
@@ -54,8 +58,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.staticfiles',  
-    'drf_yasg',
+    # 'django.contrib.staticfiles',  
+    # 'drf_yasg',
+    'swagger_ui',
+
 ]
 
 MIDDLEWARE = [
