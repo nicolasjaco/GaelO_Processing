@@ -16,7 +16,7 @@ from pathlib import Path
 
 import os
 
-import swagger_ui
+
 
 
 # Initialise environment variables
@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'django.contrib.staticfiles',  
     # 'drf_yasg',
-    'swagger_ui',
 
 ]
 

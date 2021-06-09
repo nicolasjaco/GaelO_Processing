@@ -15,7 +15,6 @@ tensorflow-serving-api = "==2.5.0"
 django-environ = "*"
 sphinx = "*"
 drf-yasg = "*"
-django-swagger-ui = "*"
 
 [dev-packages]
 autopep8 = "*"
