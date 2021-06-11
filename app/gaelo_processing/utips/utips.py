@@ -27,3 +27,4 @@ class Utips:
                 target = open(os.path.join(destination, filename), "wb")
                 with source, target:
                     shutil.copyfileobj(source, target)
+                print(target)

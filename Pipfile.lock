@@ -130,10 +130,10 @@
         },
         "dicom-to-cnn": {
             "hashes": [
-                "sha256:dcb2cf6543739af28b36f23c5112911ce14ed6f07a25942f4486bfa83336bcb2"
+                "sha256:c0a618842786fe98f0169a7ac2301146a88f6e66e3eeebe1a155170b8cf481b9"
             ],
             "index": "pypi",
-            "version": "==0.67"
+            "version": "==0.68"
         },
         "django": {
             "hashes": [
