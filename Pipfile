@@ -15,6 +15,7 @@ django-environ = "*"
 sphinx = "*"
 drf-yasg = "*"
 dicom-to-cnn = "*"
+django-swagger-ui = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -16,6 +16,7 @@ from pathlib import Path
 
 import os
 
+import swagger_ui
 # import drf_yasg
 
 
@@ -46,7 +47,7 @@ ORTHANC_PORT=env('ORTHANC_PORT')
 ORTHANC_USERNAME=env('ORTHANC_USERNAME')
 ORTHANC_PASSWORD=env('ORTHANC_PASSWORD')
 
-SWAGGER_YAML_FILE='../../Documentation/swagger.yml'
+SWAGGER_YAML_FILE='../Documentation/swagger.yml'
 
 
 # Application definition
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'swagger_ui',
     # 'drf_yasg',
 
 ]
