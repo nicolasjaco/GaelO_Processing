@@ -15,9 +15,8 @@ import environ
 from pathlib import Path
 
 import os
-
-import swagger_ui
-# import drf_yasg
+import drf_yasg
+# import rest_framework
 
 
 # Initialise environment variables
@@ -47,8 +46,6 @@ ORTHANC_PORT=env('ORTHANC_PORT')
 ORTHANC_USERNAME=env('ORTHANC_USERNAME')
 ORTHANC_PASSWORD=env('ORTHANC_PASSWORD')
 
-SWAGGER_YAML_FILE='../Documentation/swagger.yml'
-
 
 # Application definition
 
@@ -59,8 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'swagger_ui',
-    # 'drf_yasg',
+    # 'rest-framework',
+    'drf_yasg',
 
 ]
 
