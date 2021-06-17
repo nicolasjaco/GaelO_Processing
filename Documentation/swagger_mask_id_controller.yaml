@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  description: "This is the documentiation for gaelo_processing"
+  version: "0.1"
+  title: "Gaelo_processing"
+  contact: 
+    email: "Salim.kanoun@gmail.com"
+tags:
+- name: "radiomics"
+  description: "Radiomics results"
+- name: "images"
+  description: "Handle the images"
+- name: "masks"
+  description: "Handle the masks"
+- name: "models"
+  description: "Datas from models"
+paths:
+  /masks/<str:idMasks>:
+    dalete:
+      tags:
+      - "image"
+      summary: "Delete an mask"
+      description: ""
+      consumes:
+      - ""
+      produces:
+      - ""
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          $ref: "#/definitions/Mask"
+      responses:
+        "404":
+          description: "Mask not delete"
+    get:
+      tags:
+      - "image"
+      summary: "Get metadata mask"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          $ref: "#/definitions/Mask"
+      responses:
+        "404":
+          description: "No mask found"
+definitions:
+  Mask:
+    type: "object"
+    properties:
+      id:
+        type: "string"

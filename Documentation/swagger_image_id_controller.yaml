@@ -15,11 +15,29 @@ tags:
 - name: "models"
   description: "Datas from models"
 paths:
-  /image:
-    post:
+  /images/<str:idImage>:
+    dalete:
       tags:
       - "image"
-      summary: "Create an image"
+      summary: "Delete an image"
+      description: ""
+      consumes:
+      - ""
+      produces:
+      - ""
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          $ref: "#/definitions/Image"
+      responses:
+        "404":
+          description: "Image not delete"
+    get:
+      tags:
+      - "image"
+      summary: "Get metadata image"
       description: ""
       consumes:
       - "application/json"
@@ -31,24 +49,6 @@ paths:
         description: ""
         schema:
           $ref: "#/definitions/Image"
-      responses:
-        "404":
-          description: "Image not created"
-    get:
-      tags:
-      - "image"
-      summary: "Get an image id"
-      description: ""
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: ""
-        schema:
-          $ref: "#/app/gaelo_processing/controller/image_controller"
       responses:
         "404":
           description: "No image found"

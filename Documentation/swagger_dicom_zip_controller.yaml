@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  description: "This is the documentiation for gaelo_processing"
+  version: "0.1"
+  title: "Gaelo_processing"
+  contact: 
+    email: "Salim.kanoun@gmail.com"
+tags:
+- name: "radiomics"
+  description: "Radiomics results"
+- name: "images"
+  description: "Handle the images"
+- name: "masks"
+  description: "Handle the masks"
+- name: "models"
+  description: "Datas from models"
+paths:
+  /dicom: 
+    post:
+      tags:
+      - "dicom_zip"
+      summary: "Dezip orthanc zip"
+      description: ""
+      consumes:
+      - "application/zip"
+      produces:
+      - ""
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          $ref: "#/definitions/Path"
+      responses:
+        "404":
+          description: "Zip not found"
+   
+definitions:
+  Path:
+    type: "object"
+    properties:
+      path:
+        type: "string"

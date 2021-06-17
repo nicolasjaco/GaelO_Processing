@@ -1,42 +1,181 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>app.gaelo_processing.controller package &mdash; gaelo_processing 0.1 documentation</title>
+  
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
-    <title>app.gaelo_processing.controller package &#8212; gaelo_processing 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home"> gaelo_processing
+          
+
+          
+          </a>
+
+          
             
-  <section id="app-gaelo-processing-controller-package">
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">app.gaelo_processing.controller package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.dicom_zip_controller">app.gaelo_processing.controller.dicom_zip_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.dl_image_file_controller">app.gaelo_processing.controller.dl_image_file_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.dl_mask_file_controller">app.gaelo_processing.controller.dl_mask_file_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.image_controller">app.gaelo_processing.controller.image_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.image_id_controller">app.gaelo_processing.controller.image_id_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.mask_controller">app.gaelo_processing.controller.mask_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.mask_id_controller">app.gaelo_processing.controller.mask_id_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.models_list_controller">app.gaelo_processing.controller.models_list_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.models_metadata_controller">app.gaelo_processing.controller.models_metadata_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.pyradiomics">app.gaelo_processing.controller.pyradiomics module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller.tensorflow_controller">app.gaelo_processing.controller.tensorflow_controller module</a></li>
+<li><a class="reference internal" href="#module-app.gaelo_processing.controller">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gaelo_processing</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>app.gaelo_processing.controller package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/app.gaelo_processing.controller.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="app-gaelo-processing-controller-package">
 <h1>app.gaelo_processing.controller package<a class="headerlink" href="#app-gaelo-processing-controller-package" title="Permalink to this headline">¶</a></h1>
-<section id="submodules">
+<div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="module-app.gaelo_processing.controller.dicom_zip_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.dicom_zip_controller">
 <span id="app-gaelo-processing-controller-dicom-zip-controller-module"></span><h2>app.gaelo_processing.controller.dicom_zip_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.dicom_zip_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.dicom_zip_controller.get_dicom_zip">
@@ -48,8 +187,8 @@
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.dicom_zip_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.dicom_zip_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.dl_image_file_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.dl_image_file_controller">
 <span id="app-gaelo-processing-controller-dl-image-file-controller-module"></span><h2>app.gaelo_processing.controller.dl_image_file_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.dl_image_file_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.dl_image_file_controller.download_image_file">
@@ -70,8 +209,8 @@
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.dl_image_file_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idImage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.dl_image_file_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.dl_mask_file_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.dl_mask_file_controller">
 <span id="app-gaelo-processing-controller-dl-mask-file-controller-module"></span><h2>app.gaelo_processing.controller.dl_mask_file_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.dl_mask_file_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.dl_mask_file_controller.get_mask_file">
@@ -92,8 +231,8 @@
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.dl_mask_file_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idMask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.dl_mask_file_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.image_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.image_controller">
 <span id="app-gaelo-processing-controller-image-controller-module"></span><h2>app.gaelo_processing.controller.image_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.image_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.image_controller.create_image">
@@ -121,8 +260,8 @@ Returns:
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.image_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.image_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.image_id_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.image_id_controller">
 <span id="app-gaelo-processing-controller-image-id-controller-module"></span><h2>app.gaelo_processing.controller.image_id_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.image_id_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.image_id_controller.delete_image">
@@ -152,8 +291,8 @@ Returns:
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.image_id_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idImage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.image_id_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.mask_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.mask_controller">
 <span id="app-gaelo-processing-controller-mask-controller-module"></span><h2>app.gaelo_processing.controller.mask_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.mask_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.mask_controller.create_mask">
@@ -181,8 +320,8 @@ Returns:
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.mask_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.mask_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.mask_id_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.mask_id_controller">
 <span id="app-gaelo-processing-controller-mask-id-controller-module"></span><h2>app.gaelo_processing.controller.mask_id_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.mask_id_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.mask_id_controller.delete_mask">
@@ -212,16 +351,16 @@ Returns:
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.mask_id_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idMask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.mask_id_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.models_list_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.models_list_controller">
 <span id="app-gaelo-processing-controller-models-list-controller-module"></span><h2>app.gaelo_processing.controller.models_list_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.models_list_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.models_list_controller.handle">
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.models_list_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.models_list_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.models_metadata_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.models_metadata_controller">
 <span id="app-gaelo-processing-controller-models-metadata-controller-module"></span><h2>app.gaelo_processing.controller.models_metadata_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.models_metadata_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.models_metadata_controller.get_metadata">
@@ -233,8 +372,8 @@ Returns:
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.models_metadata_controller.</span></span><span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.gaelo_processing.controller.models_metadata_controller.handle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.pyradiomics">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.pyradiomics">
 <span id="app-gaelo-processing-controller-pyradiomics-module"></span><h2>app.gaelo_processing.controller.pyradiomics module<a class="headerlink" href="#module-app.gaelo_processing.controller.pyradiomics" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.pyradiomics.handle">
@@ -257,8 +396,8 @@ idJson(int): [Input idJson]</p>
 </div></blockquote>
 </dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller.tensorflow_controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller.tensorflow_controller">
 <span id="app-gaelo-processing-controller-tensorflow-controller-module"></span><h2>app.gaelo_processing.controller.tensorflow_controller module<a class="headerlink" href="#module-app.gaelo_processing.controller.tensorflow_controller" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.gaelo_processing.controller.tensorflow_controller.handle">
@@ -270,73 +409,54 @@ idJson(int): [Input idJson]</p>
 <span class="sig-prename descclassname"><span class="pre">app.gaelo_processing.controller.tensorflow_controller.</span></span><span class="sig-name descname"><span class="pre">prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idImage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#app.gaelo_processing.controller.tensorflow_controller.prediction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-<section id="module-app.gaelo_processing.controller">
+</div>
+<div class="section" id="module-app.gaelo_processing.controller">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-app.gaelo_processing.controller" title="Permalink to this headline">¶</a></h2>
-</section>
-</section>
+</div>
+</div>
 
 
+           </div>
+           
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Salim Kanoun, Nicolas Jacomi.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">gaelo_processing</a></h1>
 
+    </section>
 
+  </div>
+  
 
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Salim Kanoun, Nicolas Jacomi.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/app.gaelo_processing.controller.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
+  
+  
     
+   
 
-    
-  </body>
+</body>
 </html>
