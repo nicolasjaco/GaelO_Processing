@@ -35,7 +35,7 @@ class DicomToCnn:
             img=nifti.export_nifti(data_path+'/image/image_'+image_id+'.nii')
 
 
-    def to_2D(self,idImage:str):
+    def generate_mip(self,idImage:str):
         data_path = settings.STORAGE_DIR
         directory=settings.STORAGE_DIR+'/image'
         path_ct =data_path+'/image/image_'+idImage+'.nii'
