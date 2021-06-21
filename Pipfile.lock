@@ -130,10 +130,10 @@
         },
         "dicom-to-cnn": {
             "hashes": [
-                "sha256:c0a618842786fe98f0169a7ac2301146a88f6e66e3eeebe1a155170b8cf481b9"
+                "sha256:4c2aac6e2157705dff79074146ea741b56589f9f40b35c23f320acb796cbb39f"
             ],
             "index": "pypi",
-            "version": "==0.68"
+            "version": "==0.73"
         },
         "django": {
             "hashes": [
@@ -753,7 +753,7 @@
                 "sha256:ca43ac48d4014ddfa860cebcbd0814dfe4b9c7a6e2d69875272dc3c824f61c47",
                 "sha256:f3469afeab2fe1bfc2fbb1368fed83c5af4473c77e9c55f8141d2ec999ae42ab"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4.0'",
+            "markers": "python_version >= '3.6' and python_version < '4'",
             "version": "==0.2.3"
         },
         "pygments": {
@@ -1202,7 +1202,7 @@
                 "sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c",
                 "sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
             "version": "==1.26.5"
         },
         "werkzeug": {

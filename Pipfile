@@ -14,9 +14,9 @@ tensorflow-serving-api = "==2.5.0"
 django-environ = "*"
 sphinx = "*"
 drf-yasg = "*"
-dicom-to-cnn = "*"
 django-rest-framework = "*"
 sphinx-rtd-theme = "*"
+dicom-to-cnn = "*"
 
 [dev-packages]
 autopep8 = "*"

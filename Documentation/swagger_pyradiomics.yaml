@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  description: "This is the documentiation for gaelo_processing"
+  version: "0.1"
+  title: "Gaelo_processing"
+  contact: 
+    email: "Salim.kanoun@gmail.com"
+tags:
+- name: "radiomics"
+  description: "Radiomics results"
+- name: "images"
+  description: "Handle the images"
+- name: "masks"
+  description: "Handle the masks"
+- name: "models"
+  description: "Datas from models"
+paths:
+  /radiomics/image/<str:idImage>/mask/<str:idMask>: 
+    post:
+      tags:
+      - "pyradiomics"
+      summary: "Return pyradiomics results"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        schema:
+          $ref: "#/definitions/Pyradiomics"
+      responses:
+        "404":
+          description: "Not found"
+   
+definitions:
+  Pyradiomics:
+    type: "object"
+    properties:
+      path:
+        type: "list"
