@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from ...gaelo_processing.models.Orthanc import Orthanc
+from ...gaelo_processing.models.orthanc import Orthanc
 
 
 class test_orthanc_class(TestCase):

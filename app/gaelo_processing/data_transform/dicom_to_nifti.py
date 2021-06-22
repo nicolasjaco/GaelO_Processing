@@ -45,5 +45,4 @@ class DicomToCnn:
         normalize = resampled[:,:,:,]/np.max(resampled)
         mip_generator = MIP_Generator(normalize)
         mip_generator.project(angle=0)
-        print(mip_generator.project(angle=0))
         mip_generator.save_as_png('image_2D_'+idImage,  directory, vmin=0, vmax=1)
