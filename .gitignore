@@ -10,4 +10,3 @@ __pycache__/
 .vscode/settings.json
 orthanc.zip
 gaelo_processing/.env
-Documentation/docker-compose.yml
