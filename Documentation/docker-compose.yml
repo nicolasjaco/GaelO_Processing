@@ -54,8 +54,6 @@ services:
             MODEL_NAME: "aquisition_field_model"
 
 
-
-
 volumes:
         orthanc:
         gaeloprocessing:
